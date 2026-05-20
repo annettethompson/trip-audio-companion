@@ -1,0 +1,239 @@
+# Trip Audio Companion — Available Narrator Voices
+# Source: edge-tts (Microsoft Neural via Azure Cognitive Services, free, no API key)
+# Verified: 2026-05-20 by running `python -m edge_tts --list-voices | grep "^en-"`
+# These are the exact voices edge-tts exposes — NOT the full Azure Speech catalog.
+# Azure has 150+ English voices; edge-tts surfaces ~47 English voices.
+#
+# Preview any voice:
+#   edge-tts --voice en-GB-RyanNeural --text "Welcome to your trip audio companion" --write-media preview.mp3
+#
+# List all available voices on your install:
+#   python -m edge_tts --list-voices | grep "^en-"
+
+default: en-GB-RyanNeural
+
+voices:
+  united_states:
+    # 17 US voices in edge-tts (out of ~95 in full Azure catalog)
+    male:
+      - id: en-US-AndrewNeural
+        name: "Andrew — American Male"
+        style: "Warm, confident, authentic — good for nature narration"
+      - id: en-US-AndrewMultilingualNeural
+        name: "Andrew Multilingual — American Male"
+        style: "Warm, confident, authentic, honest — multilingual capable"
+      - id: en-US-BrianNeural
+        name: "Brian — American Male"
+        style: "Approachable, casual, sincere"
+      - id: en-US-BrianMultilingualNeural
+        name: "Brian Multilingual — American Male"
+        style: "Approachable, casual, sincere — multilingual capable"
+      - id: en-US-ChristopherNeural
+        name: "Christopher — American Male"
+        style: "Reliable, authoritative — good for history segments"
+      - id: en-US-EricNeural
+        name: "Eric — American Male"
+        style: "Rational, clear"
+      - id: en-US-GuyNeural
+        name: "Guy — American Male"
+        style: "Passionate, news-style — strong for geology and science"
+      - id: en-US-RogerNeural
+        name: "Roger — American Male"
+        style: "Lively, engaging"
+      - id: en-US-SteffanNeural
+        name: "Steffan — American Male"
+        style: "Rational, news-novel style"
+    female:
+      - id: en-US-AnaNeural
+        name: "Ana — American Female (Child)"
+        style: "Cute, conversational — cartoon/child persona"
+      - id: en-US-AriaNeural
+        name: "Aria — American Female"
+        style: "Positive, confident — news and novel narration"
+      - id: en-US-AvaNeural
+        name: "Ava — American Female"
+        style: "Expressive, caring, pleasant, friendly"
+      - id: en-US-AvaMultilingualNeural
+        name: "Ava Multilingual — American Female"
+        style: "Expressive, caring, pleasant, friendly — multilingual capable"
+      - id: en-US-EmmaNeural
+        name: "Emma — American Female"
+        style: "Cheerful, clear, conversational"
+      - id: en-US-EmmaMultilingualNeural
+        name: "Emma Multilingual — American Female (edge-tts default)"
+        style: "Cheerful, clear, conversational — multilingual capable"
+      - id: en-US-JennyNeural
+        name: "Jenny — American Female"
+        style: "Friendly, considerate, comforting — excellent all-rounder"
+      - id: en-US-MichelleNeural
+        name: "Michelle — American Female"
+        style: "Friendly, pleasant — news and novel style"
+
+  united_kingdom:
+    # 5 UK voices in edge-tts (out of 16 in full Azure catalog)
+    # No dedicated Scottish voices exist in edge-tts or in Azure's standard en-GB set.
+    # Scottish English is not a separate locale in Microsoft Neural TTS as of 2026-05-20.
+    male:
+      - id: en-GB-RyanNeural
+        name: "Ryan — British Male (project default)"
+        style: "Friendly, documentary-quality — warm narration style. Ideal for road trip audio."
+      - id: en-GB-ThomasNeural
+        name: "Thomas — British Male"
+        style: "Friendly, positive"
+    female:
+      - id: en-GB-LibbyNeural
+        name: "Libby — British Female"
+        style: "Friendly, positive"
+      - id: en-GB-MaisieNeural
+        name: "Maisie — British Female (Child)"
+        style: "Friendly, positive — child persona"
+      - id: en-GB-SoniaNeural
+        name: "Sonia — British Female"
+        style: "Friendly, positive — clear and authoritative"
+
+  ireland:
+    # Both Irish voices are present in edge-tts
+    male:
+      - id: en-IE-ConnorNeural
+        name: "Connor — Irish Male"
+        style: "Friendly, positive — warm storytelling quality"
+    female:
+      - id: en-IE-EmilyNeural
+        name: "Emily — Irish Female"
+        style: "Friendly, positive — bright and engaging"
+
+  scotland:
+    # Honest finding: No dedicated Scottish locale (en-GB-Scottish or similar) exists
+    # in edge-tts or in the Microsoft Azure Neural TTS standard voice catalog as of 2026-05-20.
+    # en-GB voices (Ryan, Thomas, Sonia, Libby) use standard Received Pronunciation (RP) British English.
+    # A Scottish accent is not available without a custom Neural Voice (Azure Custom Neural Voice,
+    # not supported by edge-tts).
+    note: >
+      No Scottish-specific voices are available in edge-tts or the standard Azure Neural TTS
+      catalog as of 2026-05-20. Microsoft does not publish a dedicated en-GB-Scottish or en-SCO
+      locale. Custom Neural Voice (Azure paid tier) can train on Scottish speakers but is not
+      accessible via edge-tts. Use en-GB-RyanNeural or en-GB-ThomasNeural as the closest
+      available British accents.
+
+  australia:
+    # 2 Australian voices in edge-tts; note en-AU-WilliamMultilingualNeural is included
+    # The large extended en-AU set (Annette, Carly, Darren, Duncan, Elsie, etc.) is
+    # Azure Speech SDK only -- not accessible via edge-tts.
+    male:
+      - id: en-AU-WilliamNeural
+        name: "William — Australian Male"
+        style: "Friendly, positive — relaxed and approachable"
+      - id: en-AU-WilliamMultilingualNeural
+        name: "William Multilingual — Australian Male"
+        style: "Friendly, positive — multilingual capable"
+    female:
+      - id: en-AU-NatashaNeural
+        name: "Natasha — Australian Female"
+        style: "Friendly, positive — clear and professional"
+
+  canada:
+    male:
+      - id: en-CA-LiamNeural
+        name: "Liam — Canadian Male"
+        style: "Friendly, positive"
+    female:
+      - id: en-CA-ClaraNeural
+        name: "Clara — Canadian Female"
+        style: "Friendly, positive"
+
+  new_zealand:
+    male:
+      - id: en-NZ-MitchellNeural
+        name: "Mitchell — New Zealand Male"
+        style: "Friendly, positive"
+    female:
+      - id: en-NZ-MollyNeural
+        name: "Molly — New Zealand Female"
+        style: "Friendly, positive"
+
+  india:
+    # 3 Indian English voices in edge-tts
+    male:
+      - id: en-IN-PrabhatNeural
+        name: "Prabhat — Indian English Male"
+        style: "Friendly, positive"
+    female:
+      - id: en-IN-NeerjaNeural
+        name: "Neerja — Indian English Female"
+        style: "Friendly, positive — cheerful and empathetic"
+      - id: en-IN-NeerjaExpressiveNeural
+        name: "Neerja Expressive — Indian English Female"
+        style: "Friendly, positive — expressive variant"
+
+  south_africa:
+    male:
+      - id: en-ZA-LukeNeural
+        name: "Luke — South African Male"
+        style: "Friendly, positive"
+    female:
+      - id: en-ZA-LeahNeural
+        name: "Leah — South African Female"
+        style: "Friendly, positive"
+
+  other_english_locales:
+    # Included for completeness — all verified present in edge-tts
+    hong_kong:
+      - id: en-HK-SamNeural
+        name: "Sam — Hong Kong Male"
+        gender: Male
+      - id: en-HK-YanNeural
+        name: "Yan — Hong Kong Female"
+        gender: Female
+    singapore:
+      - id: en-SG-WayneNeural
+        name: "Wayne — Singapore Male"
+        gender: Male
+      - id: en-SG-LunaNeural
+        name: "Luna — Singapore Female"
+        gender: Female
+    philippines:
+      - id: en-PH-JamesNeural
+        name: "James — Philippines Male"
+        gender: Male
+      - id: en-PH-RosaNeural
+        name: "Rosa — Philippines Female"
+        gender: Female
+    kenya:
+      - id: en-KE-ChilembaNeural
+        name: "Chilemba — Kenya Male"
+        gender: Male
+      - id: en-KE-AsiliaNeural
+        name: "Asilia — Kenya Female"
+        gender: Female
+    nigeria:
+      - id: en-NG-AbeoNeural
+        name: "Abeo — Nigeria Male"
+        gender: Male
+      - id: en-NG-EzinneNeural
+        name: "Ezinne — Nigeria Female"
+        gender: Female
+    tanzania:
+      - id: en-TZ-ElimuNeural
+        name: "Elimu — Tanzania Male"
+        gender: Male
+      - id: en-TZ-ImaniNeural
+        name: "Imani — Tanzania Female"
+        gender: Female
+
+# --- Voice count summary (edge-tts verified, 2026-05-20) ---
+# en-US: 17 voices  (9 male, 8 female)
+# en-GB: 5 voices   (2 male, 3 female)
+# en-AU: 3 voices   (2 male, 1 female)
+# en-IE: 2 voices   (1 male, 1 female)
+# en-CA: 2 voices   (1 male, 1 female)
+# en-NZ: 2 voices   (1 male, 1 female)
+# en-IN: 3 voices   (1 male, 2 female)
+# en-ZA: 2 voices   (1 male, 1 female)
+# en-HK: 2 voices   (1 male, 1 female)
+# en-SG: 2 voices   (1 male, 1 female)
+# en-PH: 2 voices   (1 male, 1 female)
+# en-KE: 2 voices   (1 male, 1 female)
+# en-NG: 2 voices   (1 male, 1 female)
+# en-TZ: 2 voices   (1 male, 1 female)
+# Scotland: 0       (no dedicated locale in Microsoft Neural TTS)
+# TOTAL: 47 English voices across 14 locales

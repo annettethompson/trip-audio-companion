@@ -1,6 +1,10 @@
 # Voice configuration for Trip Audio Companion
 # TTS engine: edge-tts (Microsoft neural voices, free, no API key)
 # Fallback: azure (requires AZURE_SPEECH_KEY in .env)
+#
+# Full voice catalog (47 English voices, organized by region and gender):
+#   config/voices_catalog.yaml
+# The default voice below (en-GB-RyanNeural) is also the catalog default.
 
 engine: edge-tts
 

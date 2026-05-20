@@ -1,0 +1,519 @@
+# Trip Audio Companion — Interest Categories
+# Users select any combination. Each interest unlocks specific content types in the script generator.
+# Counts: 10 categories, 40 built-in interests + custom free-text field
+#
+# Usage in trip.yaml:
+#   interests:
+#     - geology
+#     - birds
+#     - mining_industrial
+#     - local_restaurants
+#   custom_interests:
+#     - "antique car museums"
+#     - "wildfire ecology and forest recovery"
+
+interest_categories:
+
+  nature_and_science:
+    label: "Nature & Science"
+    interests:
+
+      - id: geology
+        label: "Geology & Rock Formations"
+        description: "How the land was formed, rock types, fault lines, volcanic history, mineral deposits"
+        content_types:
+          - geology_cards
+          - mineral_info
+          - formation_ages
+          - erosion_process_notes
+
+      - id: plants_botany
+        label: "Plants & Wildflowers"
+        description: "What's blooming, edible plants, medicinal plants, poisonous lookalikes, seasonal timing"
+        content_types:
+          - plant_cards
+          - edibility_flags
+          - medicinal_properties
+          - seasonal_bloom_notes
+
+      - id: birds
+        label: "Birds & Birding"
+        description: "Species to spot, migration patterns, calls, nesting behavior, rare sightings"
+        content_types:
+          - bird_cards
+          - identification_tips
+          - migration_notes
+          - hotspot_locations
+
+      - id: mammals_wildlife
+        label: "Mammals & Wildlife"
+        description: "Large and small mammals, behavior patterns, habitat, best viewing times and locations"
+        content_types:
+          - wildlife_cards
+          - behavior_notes
+          - viewing_tips
+
+      - id: insects_butterflies
+        label: "Insects & Butterflies"
+        description: "Species identification, pollinator ecology, monarch migration routes, beetle diversity, firefly seasons"
+        content_types:
+          - insect_cards
+          - butterfly_species
+          - migration_corridors
+
+      - id: trees_forests
+        label: "Trees & Forest Ecology"
+        description: "Tree identification, old-growth forests, succession stages, mycorrhizal networks, fire ecology"
+        content_types:
+          - tree_cards
+          - forest_ecology
+          - old_growth_notes
+
+      - id: rivers_aquatic
+        label: "Rivers, Lakes & Aquatic Life"
+        description: "Watershed history, fish species, aquatic insects, swimming holes, water quality, dam history"
+        content_types:
+          - aquatic_cards
+          - watershed_info
+          - fish_species
+          - dam_history
+
+      - id: astronomy
+        label: "Astronomy & Dark Sky Viewing"
+        description: "What's visible tonight, constellation lore, dark sky designations, nearby observatories"
+        content_types:
+          - sky_guides
+          - dark_sky_info
+          - constellation_lore
+          - observatory_notes
+
+      - id: altitude_physiology
+        label: "Altitude & Human Physiology"
+        description: "How your body adapts to elevation, acclimatization timeline, symptoms to watch, performance effects"
+        content_types:
+          - physiology_cards
+          - altitude_tips
+          - acclimatization_notes
+
+      - id: weather_climate
+        label: "Weather & Climate Patterns"
+        description: "Microclimates, storm formation, seasonal patterns, climate history, afternoon thunderstorm timing"
+        content_types:
+          - weather_context
+          - microclimate_notes
+          - storm_pattern_info
+
+
+  history_and_culture:
+    label: "History & Culture"
+    interests:
+
+      - id: indigenous_history
+        label: "Native American & Indigenous History"
+        description: "Tribal nations, sacred sites, traditional land use, treaties, boarding school history, present-day sovereignty"
+        content_types:
+          - indigenous_history_cards
+          - sacred_site_notes
+          - treaty_context
+
+      - id: mining_industrial
+        label: "Mining & Industrial History"
+        description: "Boom/bust cycles, mine operations, company towns, ore processing, labor history, environmental aftermath"
+        content_types:
+          - mining_history_cards
+          - company_town_notes
+          - labor_history
+
+      - id: railroad_history
+        label: "Railroad History"
+        description: "Line construction, famous routes, steam era, narrow gauge vs. standard, impact on settlement patterns"
+        content_types:
+          - railroad_cards
+          - construction_notes
+          - route_history
+
+      - id: military_history
+        label: "Military History & Battlefields"
+        description: "Conflicts, forts, campaigns, veterans' stories, strategic significance, monuments"
+        content_types:
+          - military_history_cards
+          - battlefield_notes
+          - fort_history
+
+      - id: frontier_colonial
+        label: "Frontier & Colonial History"
+        description: "Exploration routes, settlement timelines, homesteading, pioneer life, the Oregon Trail and its branches"
+        content_types:
+          - frontier_history_cards
+          - exploration_notes
+          - homestead_history
+
+      - id: architecture_buildings
+        label: "Architecture & Historic Buildings"
+        description: "Architectural styles, notable structures, restoration stories, architects, National Register properties"
+        content_types:
+          - architecture_cards
+          - restoration_notes
+          - style_identification
+
+      - id: antique_vintage
+        label: "Antique & Vintage Culture"
+        description: "Antique shops, vintage markets, car museums, collectibles history, estate sale culture"
+        content_types:
+          - antique_venue_cards
+          - vintage_market_notes
+
+      - id: art_galleries
+        label: "Art Museums & Galleries"
+        description: "Regional artists, permanent collections, public art, sculpture parks, murals, gallery districts"
+        content_types:
+          - art_venue_cards
+          - public_art_notes
+          - regional_artist_profiles
+
+      - id: literary_history
+        label: "Literary History & Authors"
+        description: "Writers connected to places, independent bookshops, literary landmarks, famous manuscripts set here"
+        content_types:
+          - literary_cards
+          - author_connection_notes
+          - bookshop_recommendations
+
+      - id: music_history
+        label: "Music History & Venues"
+        description: "Regional music scenes, historic venues, musicians' birthplaces, recording studios, folk traditions"
+        content_types:
+          - music_history_cards
+          - venue_notes
+          - genre_origins
+
+      - id: film_tv_locations
+        label: "Film & TV Filming Locations"
+        description: "Where movies and TV shows were filmed, behind-the-scenes production stories, location scouts"
+        content_types:
+          - film_location_cards
+          - production_notes
+
+      - id: ghost_towns
+        label: "Ghost Towns & Abandoned Places"
+        description: "Abandoned settlements, why they were founded, why they failed, what physically remains today"
+        content_types:
+          - ghost_town_cards
+          - abandonment_history
+          - remaining_structures
+
+
+  food_and_drink:
+    label: "Food & Drink"
+    interests:
+
+      - id: local_restaurants
+        label: "Local Restaurants & Food Culture"
+        description: "Locally owned restaurants, regional specialties, chef stories, food traditions unique to this area"
+        content_types:
+          - restaurant_recommendations
+          - regional_food_notes
+          - chef_profiles
+
+      - id: breweries_wineries
+        label: "Craft Breweries, Distilleries & Wineries"
+        description: "Local producers, tasting notes, brewing and winemaking history, terroir, flagship products"
+        content_types:
+          - brewery_winery_cards
+          - production_notes
+          - tasting_recommendations
+
+      - id: farm_food
+        label: "Farm-to-Table & Local Producers"
+        description: "Farmers markets, working farms open to visitors, regional agriculture history, CSAs"
+        content_types:
+          - farm_cards
+          - market_notes
+          - ag_history
+
+      - id: coffee_cafes
+        label: "Coffee Shops & Independent Cafes"
+        description: "Worth-a-stop cafes, local roasters, historic bakeries, tea houses"
+        content_types:
+          - cafe_recommendations
+          - roaster_notes
+
+      - id: foraging
+        label: "Wild Food Foraging"
+        description: "Edible mushrooms, berries, greens — what's in season, identification, safety, regulations"
+        content_types:
+          - foraging_cards
+          - seasonal_availability
+          - safety_notes
+
+
+  adventure_and_sports:
+    label: "Adventure & Sports"
+    interests:
+
+      - id: hiking
+        label: "Hiking Trails"
+        description: "Trail descriptions, difficulty ratings, geology and nature interpretation along the way, access points"
+        content_types:
+          - hiking_cards
+          - trail_descriptions
+          - trailhead_access
+
+      - id: extreme_sports
+        label: "Extreme Sports & Adventure"
+        description: "Via ferrata, whitewater rafting, paragliding, zip lines, rock climbing, BASE jumping areas"
+        content_types:
+          - adventure_activity_cards
+          - difficulty_ratings
+          - outfitter_info
+
+      - id: mountain_biking
+        label: "Mountain Biking"
+        description: "Trail systems, difficulty, flow trails vs. technical, best seasons, shuttle options, rental info"
+        content_types:
+          - mtb_cards
+          - trail_system_notes
+          - rental_info
+
+      - id: water_sports
+        label: "Water Sports & Kayaking"
+        description: "Paddling routes, whitewater difficulty, fishing access, swimming holes, put-in/take-out points"
+        content_types:
+          - water_sport_cards
+          - paddling_route_notes
+          - fishing_notes
+
+      - id: equestrian
+        label: "Horseback Riding & Equestrian"
+        description: "Riding trails, horse history in the region, ranching culture, liveries open to visitors"
+        content_types:
+          - equestrian_cards
+          - riding_trail_notes
+          - ranch_history
+
+      - id: winter_sports
+        label: "Winter Sports (Summer Scouting)"
+        description: "Ski areas, snowshoe routes, ice climbing, nordic trails — scout in summer to plan winter return"
+        content_types:
+          - winter_sport_cards
+          - ski_area_notes
+          - nordic_trail_notes
+
+      - id: fishing
+        label: "Fishing & Fly Fishing"
+        description: "Best rivers and lakes, species, hatch timing, Gold Medal waters, license requirements"
+        content_types:
+          - fishing_cards
+          - hatch_calendar
+          - gold_medal_water_notes
+
+
+  wellness_and_spiritual:
+    label: "Wellness & Spiritual"
+    interests:
+
+      - id: hot_springs
+        label: "Hot Springs & Geothermal"
+        description: "Mineral content, geology, soaking etiquette, history, therapeutic properties, developed vs. primitive"
+        content_types:
+          - hot_spring_cards
+          - mineral_content_notes
+          - geothermal_geology
+
+      - id: religious_spiritual
+        label: "Religious & Spiritual Sites"
+        description: "Historic churches, shrines, sacred natural sites, retreat centers, pilgrimage routes"
+        content_types:
+          - spiritual_site_cards
+          - religious_history_notes
+
+      - id: wellness_meditation
+        label: "Wellness, Spas & Meditation"
+        description: "Retreat centers, day spas, yoga studios, meditation gardens, natural healing traditions"
+        content_types:
+          - wellness_cards
+          - retreat_center_notes
+
+      - id: cemetery_history
+        label: "Historic Cemeteries & Genealogy"
+        description: "Pioneer cemeteries, notable burials, epitaphs, genealogy research opportunities, cemetery art"
+        content_types:
+          - cemetery_cards
+          - genealogy_research_notes
+          - notable_burial_profiles
+
+
+  photography_and_scenic:
+    label: "Photography & Scenic"
+    interests:
+
+      - id: photography_spots
+        label: "Photography Spots & Golden Hour Locations"
+        description: "Best viewpoints, optimal timing by season, composition tips, iconic and lesser-known shots"
+        content_types:
+          - photo_spot_cards
+          - golden_hour_timing
+          - composition_tips
+
+      - id: scenic_drives
+        label: "Scenic Drives & Viewpoints"
+        description: "What to look for out the window, named pullouts, overlooks, best direction to drive for light"
+        content_types:
+          - scenic_drive_cards
+          - viewpoint_notes
+          - driving_direction_tips
+
+      - id: covered_bridges
+        label: "Covered Bridges & Historic Crossings"
+        description: "History of covered bridge construction, why they were covered, which ones remain, structural types"
+        content_types:
+          - bridge_cards
+          - construction_history
+          - structural_notes
+
+      - id: waterfalls
+        label: "Waterfalls & Cascades"
+        description: "Named falls, access difficulty, best flow seasons, geology driving the drop, swimming access"
+        content_types:
+          - waterfall_cards
+          - seasonal_flow_notes
+          - access_info
+
+
+  quirky_and_offbeat:
+    label: "Quirky & Offbeat"
+    interests:
+
+      - id: roadside_attractions
+        label: "Roadside Attractions & Folk Art"
+        description: "Unusual monuments, giant objects, outsider art environments, eccentric museums"
+        content_types:
+          - roadside_attraction_cards
+          - folk_art_notes
+
+      - id: cryptids_paranormal
+        label: "Cryptids, Folklore & Paranormal"
+        description: "Local legends, Bigfoot sightings, haunted locations, folklore traditions, UFO history"
+        content_types:
+          - folklore_cards
+          - cryptid_notes
+          - haunted_site_notes
+
+      - id: world_records
+        label: "World Records & Superlatives"
+        description: "Largest, oldest, tallest, deepest, longest — verified records in the region"
+        content_types:
+          - superlative_cards
+
+
+  science_and_technology:
+    label: "Science & Technology"
+    interests:
+
+      - id: space_exploration
+        label: "Space Exploration & Rocketry"
+        description: "Launch sites, astronaut connections, observatories, meteor craters, space geology"
+        content_types:
+          - space_history_cards
+          - crater_geology_notes
+
+      - id: energy_infrastructure
+        label: "Energy Infrastructure"
+        description: "Wind farms, solar installations, hydroelectric history, nuclear plants, oil/gas history"
+        content_types:
+          - energy_cards
+          - infrastructure_notes
+
+      - id: conservation_environment
+        label: "Conservation & Environmental History"
+        description: "Superfund sites and cleanup, wilderness designations, rewilding projects, endangered species recovery"
+        content_types:
+          - conservation_cards
+          - environmental_history
+          - recovery_project_notes
+
+
+  family_and_accessibility:
+    label: "Family & Accessibility"
+    interests:
+
+      - id: family_activities
+        label: "Family-Friendly Activities"
+        description: "Kid-appropriate stops, junior ranger programs, interactive museums, playgrounds with good views"
+        content_types:
+          - family_activity_cards
+          - junior_ranger_notes
+
+      - id: accessible_travel
+        label: "Accessible Travel & Mobility"
+        description: "Paved trails, accessible viewpoints, ADA facilities, elevation considerations"
+        content_types:
+          - accessibility_cards
+          - paved_trail_notes
+
+
+  pets:
+    label: "Traveling with Pets"
+    interests:
+
+      - id: dog_friendly
+        label: "Dog-Friendly Stops"
+        description: "Pet-friendly trails, dog-welcome businesses, water access, leash rules by land type"
+        content_types:
+          - dog_friendly_cards
+          - leash_rule_notes
+          - water_access_notes
+
+
+# --- Custom interests (free-text, unlimited) ---
+# Add anything not covered above. The script generator will research and include content
+# for these topics based on what exists along your route.
+#
+# In your trip.yaml:
+#   custom_interests:
+#     - "antique car museums"
+#     - "butterfly species and migration routes"
+#     - "family genealogy and historic cemeteries"
+#     - "Victorian architecture and ornate ironwork"
+#     - "craft pottery studios open to visitors"
+#     - "wildfire ecology and forest recovery zones"
+#     - "working cattle ranches"
+#     - "historic courthouses"
+#     - "natural swimming holes"
+#     - "sheep herding and wool culture"
+
+custom_interests:
+  enabled: true
+  description: >
+    Free-text interest topics beyond the built-in catalog. Enter any subject you want
+    the script generator to research and include when relevant to your route. Be specific
+    for better results.
+  examples:
+    - "antique car museums"
+    - "butterfly species and migration routes"
+    - "family genealogy and historic cemeteries"
+    - "Victorian architecture and ornate ironwork"
+    - "craft pottery studios open to visitors"
+    - "wildfire ecology and forest recovery"
+    - "working cattle ranches and livestock culture"
+    - "historic courthouses"
+    - "natural swimming holes"
+    - "sheep herding and wool production history"
+    - "covered bridges"
+    - "Cold War history and missile silos"
+    - "bald eagle nesting sites"
+    - "cave systems and speleology"
+    - "narrow gauge railroads"
+
+# --- Interest count summary ---
+# nature_and_science:       10 interests
+# history_and_culture:      12 interests
+# food_and_drink:            5 interests
+# adventure_and_sports:      7 interests
+# wellness_and_spiritual:    4 interests
+# photography_and_scenic:    4 interests
+# quirky_and_offbeat:        3 interests
+# science_and_technology:    3 interests
+# family_and_accessibility:  2 interests
+# pets:                      1 interest
+# TOTAL: 51 built-in interest categories + unlimited custom
