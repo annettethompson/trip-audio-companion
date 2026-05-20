@@ -94,12 +94,25 @@ def synthesize_segment(
     pitch: str = DEFAULT_PITCH,
 ) -> Path:
     try:
-        asyncio.run(synthesize_segment_async(text, output_path, voice, rate, pitch))
-    except RuntimeError as e:
-        console.print(f"[bold red]TTS error:[/bold red] {e}")
-        raise
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = None
+
+    if loop and loop.is_running():
+        # Running inside an existing event loop — use thread pool workaround
+        import concurrent.futures
+        with concurrent.futures.ThreadPoolExecutor() as pool:
+            future = pool.submit(
+                asyncio.run,
+                synthesize_segment_async(text, output_path, voice, rate, pitch)
+            )
+            result = future.result()
+    else:
+        result = asyncio.run(
+            synthesize_segment_async(text, output_path, voice, rate, pitch)
+        )
     console.print(f"[green]Synthesized:[/green] {output_path.name}")
-    return output_path
+    return result
 
 
 def synthesize_chapter(

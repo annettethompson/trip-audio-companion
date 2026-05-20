@@ -76,7 +76,19 @@ def enforce_minimum_duration(
 
 
 def check_post_tts(mp3_path: Path) -> dict:
-    audio = MP3(str(mp3_path))
+    try:
+        audio = MP3(str(mp3_path))
+    except Exception as e:
+        return {
+            "path": str(mp3_path),
+            "duration_seconds": 0,
+            "duration_minutes": 0,
+            "passes": False,
+            "passes_minimum": False,
+            "minimum_minutes": MINIMUM_MINUTES,
+            "deficit_minutes": MINIMUM_MINUTES,
+            "error": str(e),
+        }
     duration_seconds = audio.info.length
     duration_minutes = duration_seconds / 60
 
@@ -85,6 +97,7 @@ def check_post_tts(mp3_path: Path) -> dict:
         "duration_seconds": round(duration_seconds, 1),
         "duration_minutes": round(duration_minutes, 2),
         "passes": duration_minutes >= MINIMUM_MINUTES,
+        "passes_minimum": duration_minutes >= MINIMUM_MINUTES,
         "minimum_minutes": MINIMUM_MINUTES,
         "deficit_minutes": max(0, round(MINIMUM_MINUTES - duration_minutes, 2)),
     }

@@ -18,6 +18,9 @@ def stitch_segments(
     pause_between: int = SECTION_PAUSE_MS,
     episode_title: str = "Trip Audio Companion",
 ) -> Path:
+    if not segment_paths:
+        raise ValueError("stitch_segments received empty segment list — no audio to stitch.")
+
     silence = AudioSegment.silent(duration=pause_between)
     combined = AudioSegment.empty()
 
@@ -35,9 +38,8 @@ def stitch_segments(
         tags = ID3(str(output_path))
     except ID3NoHeaderError:
         tags = ID3()
-
-    tags[TIT2.__name__] = TIT2(encoding=3, text=episode_title)
-    tags[TPE1.__name__] = TPE1(encoding=3, text="Trip Audio Companion")
+    tags.add(TIT2(encoding=3, text=[episode_title]))
+    tags.add(TPE1(encoding=3, text=["Trip Audio Companion"]))
     tags.save(str(output_path))
 
     return output_path
@@ -55,6 +57,12 @@ def build_chapter_timestamps(
 ) -> list[dict]:
     chapters = []
     current_seconds = 0.0
+
+    if len(segment_paths) != len(chapter_names):
+        raise ValueError(
+            f"segment_paths ({len(segment_paths)}) and chapter_names ({len(chapter_names)}) "
+            f"must have the same length."
+        )
 
     for i, (seg_path, name) in enumerate(zip(segment_paths, chapter_names)):
         audio = AudioSegment.from_mp3(str(seg_path))

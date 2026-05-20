@@ -11,8 +11,22 @@ app = typer.Typer(help="Trip Audio Companion — 60+ minute educational MP3 epis
 console = Console()
 
 
+def _check_ffmpeg():
+    """Verify ffmpeg is on PATH. Fail fast with a clear message if not."""
+    import shutil
+    if shutil.which("ffmpeg") is None:
+        console.print(
+            "[bold red]ERROR:[/bold red] ffmpeg not found on PATH.\n"
+            "Install ffmpeg: https://ffmpeg.org/download.html\n"
+            "  Windows: winget install ffmpeg\n"
+            "  Or: choco install ffmpeg"
+        )
+        raise typer.Exit(code=1)
+
+
 def _ensure_dirs():
     """Create output directories if they don't exist."""
+    _check_ffmpeg()
     dirs = [
         Path("outputs/scripts"),
         Path("outputs/audio_segments"),

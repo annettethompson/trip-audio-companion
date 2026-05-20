@@ -29,15 +29,27 @@ class TripConfig(BaseModel):
     target_minutes: int = 65
     minimum_minutes: int = 60
     words_per_minute: int = 145
-    target_words: int = 10000
-    minimum_words: int = 9000
 
     @property
     def target_word_count(self) -> int:
+        """Target word count derived from target_minutes and words_per_minute."""
         return self.target_minutes * self.words_per_minute
+
+    @property
+    def minimum_word_count(self) -> int:
+        """Minimum word count derived from minimum_minutes and words_per_minute."""
+        return self.minimum_minutes * self.words_per_minute
 
 
 def load_trip_config(path: Path) -> TripConfig:
-    with open(path) as f:
-        data = yaml.safe_load(f)
-    return TripConfig(**data)
+    if not path.exists():
+        raise FileNotFoundError(f"Trip config not found: {path}")
+    try:
+        with open(path) as f:
+            data = yaml.safe_load(f)
+    except yaml.YAMLError as e:
+        raise ValueError(f"Invalid YAML in {path}: {e}") from e
+    try:
+        return TripConfig(**data)
+    except Exception as e:
+        raise ValueError(f"Trip config validation failed in {path}: {e}") from e

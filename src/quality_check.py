@@ -18,15 +18,17 @@ def check_no_wikipedia(citations_text: str) -> bool:
 
 def run_pre_flight(script_text: str, citations_text: str) -> dict:
     word_count = len(script_text.split())
+    estimated_minutes = round(word_count / 137.75, 1)  # rate-adjusted WPM at -5%
     has_citations = len(citations_text.strip()) > 0
     no_wiki = check_no_wikipedia(citations_text)
+    duration_passes = estimated_minutes >= 60
 
     results = {
         "word_count": word_count,
-        "estimated_minutes": round(word_count / 145, 1),
+        "estimated_minutes": estimated_minutes,
         "has_citations": has_citations,
         "no_wikipedia": no_wiki,
-        "passes": word_count >= 9000 and has_citations and no_wiki,
+        "passes": duration_passes and has_citations and no_wiki,
     }
 
     table = Table(title="Pre-Flight Quality Check")
@@ -34,8 +36,7 @@ def run_pre_flight(script_text: str, citations_text: str) -> dict:
     table.add_column("Result", style="green")
     table.add_column("Value")
 
-    table.add_row("Word count >= 9000", "✅" if word_count >= 9000 else "❌", str(word_count))
-    table.add_row("Estimated >= 60 min", "✅" if results["estimated_minutes"] >= 60 else "❌", f"{results['estimated_minutes']} min")
+    table.add_row("Estimated >= 60 min", "✅" if duration_passes else "❌", f"{estimated_minutes} min")
     table.add_row("Citations present", "✅" if has_citations else "❌", "")
     table.add_row("No Wikipedia", "✅" if no_wiki else "❌", "")
 
