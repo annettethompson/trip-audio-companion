@@ -1,0 +1,55 @@
+# Trip Audio Companion — Trip Configuration
+# Colorado Hot Springs Road Trip 2026
+
+trip_name: "Colorado Hot Springs Road Trip"
+trip_slug: "colorado_hot_springs_2026"
+start_date: "2026-05-20"
+end_date: "2026-05-28"
+
+travelers:
+  - name: Annette
+    background: "Science background, menopause health researcher, loves geology and plant biology, altitude physiology"
+    voice_level: "intelligent, no dumbing down, loves the actual science"
+  - name: Bob
+    background: "Annette's partner"
+
+# FILL IN AFTER ANNETTE PROVIDES ROUTE
+route:
+  origin: "Boulder, CO"
+  destinations:
+    - city: "TBD"
+      notes: "Update with actual route"
+
+hot_springs:
+  - name: "TBD"
+    location: "TBD"
+    notes: "Update with specific springs being visited"
+
+parks_and_trails: []
+
+topics_of_interest:
+  - Colorado hot springs geology
+  - geothermal systems and how they work
+  - Rocky Mountain formation
+  - local plants and wildflowers (mountain ecosystems)
+  - aspen groves, pine forests, riparian zones
+  - altitude physiology (why the body feels different above 8000 ft)
+  - mining and railroad history
+  - Native American history (carefully sourced, respectful)
+  - mountain wildlife (bear, elk, bighorn, marmot, eagles)
+  - scenic drives and what to notice
+  - mountain town histories and characters
+  - conversation prompts for Annette and Bob
+
+avoid_topics:
+  - political content
+  - anything requiring speculation without sourcing
+  - sensationalized content
+
+episode_style: "warm, intelligent, vivid, story-driven — like a custom educational audiobook narrated by a knowledgeable friend"
+
+target_minutes: 65
+minimum_minutes: 60
+words_per_minute: 145
+target_words: 10000
+minimum_words: 9000

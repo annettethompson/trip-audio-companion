@@ -1,0 +1,26 @@
+# Core
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+trafilatura>=1.8.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+
+# TTS
+edge-tts>=6.1.9
+
+# Audio
+pydub>=0.25.1
+mutagen>=1.47.0
+
+# Content
+markdown>=3.5.0
+openai>=1.30.0
+
+# Optional but included
+typer>=0.12.0
+rich>=13.0.0
+httpx>=0.27.0
+
+# Dev
+pytest>=8.0.0

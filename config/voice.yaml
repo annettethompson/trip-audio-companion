@@ -1,0 +1,30 @@
+# Voice configuration for Trip Audio Companion
+# TTS engine: edge-tts (Microsoft neural voices, free, no API key)
+# Fallback: azure (requires AZURE_SPEECH_KEY in .env)
+
+engine: edge-tts
+
+edge_tts:
+  voice: en-GB-RyanNeural
+  rate: "-5%"          # Slightly slower for comfortable road-trip listening
+  pitch: "-2Hz"        # Slightly warmer
+  volume: "+0%"
+
+# SSML pauses for section breaks
+pauses:
+  section_break: 2.0       # seconds between major sections
+  segment_transition: 1.5  # seconds between subsections
+  paragraph: 0.8           # natural paragraph pause
+
+# Audio post-processing
+audio:
+  sample_rate: 44100
+  bitrate: "128k"
+  channels: 1    # mono for podcast-style listening
+  format: mp3
+
+# Fallback Azure config (comment out edge_tts and uncomment this)
+# azure:
+#   voice: en-US-GuyNeural
+#   style: newscast
+#   rate: "-10%"

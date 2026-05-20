@@ -1,0 +1,37 @@
+# Source quality tiers for Trip Audio Companion
+# DO NOT use Wikipedia
+
+approved_sources:
+  tier_1:
+    - Colorado state government sites (*.colorado.gov)
+    - National Park Service (nps.gov)
+    - USGS geology (usgs.gov)
+    - University extension pages (*.edu)
+    - Colorado State University extension
+    - US Forest Service (fs.usda.gov)
+
+  tier_2:
+    - Official city/town tourism pages
+    - Local historical societies
+    - Botanical databases (plants.usda.gov, calflora.org)
+    - Colorado Geological Survey
+
+  tier_3:
+    - Reputable regional publications
+    - Museum sites
+    - Well-documented local history archives
+
+banned_sources:
+  - wikipedia.org
+  - wikimedia.org
+  - any user-edited wiki
+
+citation_format:
+  fields:
+    - title
+    - url
+    - date_accessed
+    - topic
+    - tier
+    - author
+    - publisher
