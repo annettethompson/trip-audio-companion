@@ -29,11 +29,13 @@ def stitch_segments(
 
     combined.export(str(output_path), format="mp3", bitrate="128k")
 
-    # Tag the MP3
+    # Tag the MP3 — handle fresh files with no existing ID3 header
+    from mutagen.id3 import ID3NoHeaderError
     try:
         tags = ID3(str(output_path))
-    except Exception:
+    except ID3NoHeaderError:
         tags = ID3()
+
     tags[TIT2.__name__] = TIT2(encoding=3, text=episode_title)
     tags[TPE1.__name__] = TPE1(encoding=3, text="Trip Audio Companion")
     tags.save(str(output_path))
