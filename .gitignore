@@ -1,15 +1,68 @@
-# Large generated output files
-outputs/
+# Generated audio output (large binary files)
+outputs/final_mp3s/
+outputs/audio_segments/
+outputs/scripts/
+
+# Keep the folder structure but not the contents
+!outputs/final_mp3s/.gitkeep
+!outputs/audio_segments/.gitkeep
+!outputs/scripts/.gitkeep
+!outputs/citations/.gitkeep
+
+# Temporary frames from video/image processing
+frames_tmp/
+
+# Audio and video files
+*.mp3
+*.wav
+*.mp4
+*.m4a
 
 # Python
 __pycache__/
 *.pyc
-.venv/
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
 venv/
+.venv/
+env/
 
-# Environment
+# Environment files (contain API keys)
 .env
+*.env.local
 
-# OS
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data directories (raw research, cleaned sources -- can be large)
+data/raw_sources/*.md
+data/cleaned_sources/*.md
+!data/raw_sources/.gitkeep
+!data/cleaned_sources/.gitkeep

@@ -1,0 +1,171 @@
+# Trip Audio Companion -- Trip Configuration Template
+#
+# INSTRUCTIONS:
+# 1. Copy this file: cp config/trip-template.yaml config/my-trip.yaml
+# 2. Fill in your destinations, travelers, and interests
+# 3. Run: python -m src.main generate-script --config config/my-trip.yaml
+# 4. Run: python scripts/synthesize_episode.py --config config/my-trip.yaml
+# 5. Your MP3 appears in outputs/final_mp3s/
+#
+# Every field has a comment explaining what it does.
+# Fields marked [REQUIRED] must be filled in. Others have working defaults.
+
+# ─────────────────────────────────────────────────
+# TRIP BASICS [REQUIRED]
+# ─────────────────────────────────────────────────
+
+trip_name: "My Road Trip"           # Used as the episode title
+trip_slug: "my_road_trip_2026"      # Filename-safe ID (no spaces, use underscores)
+start_date: "2026-06-01"            # Format: YYYY-MM-DD
+end_date: "2026-06-07"             # Format: YYYY-MM-DD
+
+
+# ─────────────────────────────────────────────────
+# TRAVELERS [REQUIRED -- at least one]
+# ─────────────────────────────────────────────────
+# Add as many travelers as you like.
+# The script generator uses each traveler's background and interests
+# to weight what gets covered. A geology enthusiast and a history buff
+# traveling together will each get substantial content.
+
+travelers:
+
+  - name: "Traveler One"                    # First name is enough
+    background: >
+      Brief description of who this person is and what they care about.
+      The more detail you give, the better the generator can calibrate.
+      Example: "Retired teacher, loves local history and architecture,
+      especially interested in how small towns evolved after railroad arrived."
+    voice_level: "intelligent, accessible"  # How technical the content should be.
+                                            # Options: "accessible" / "intelligent" / "expert"
+    interests:                              # Pick any IDs from interests_catalog.yaml
+      - geology                             # How the land was formed
+      - local_restaurants                   # Best locally owned food stops
+      - indigenous_history                  # Native American history and culture
+      # Full list of interest IDs in config/interests_catalog.yaml
+      # or see SETUP.md for the complete list
+
+  - name: "Traveler Two"                    # Remove this section if traveling solo
+    background: >
+      Description of traveler two's background and what they're curious about.
+    voice_level: "accessible"
+    interests:
+      - birds
+      - hiking
+      - photography_spots
+
+
+# ─────────────────────────────────────────────────
+# CUSTOM INTERESTS (optional)
+# ─────────────────────────────────────────────────
+# Add any interest not covered by the 51 built-in categories.
+# Be specific for better results. These are researched and woven in
+# wherever they're relevant to your route.
+
+custom_interests:
+  # - "covered wagon trails and pioneer crossings"
+  # - "antique car museums"
+  # - "bat colonies and cave ecology"
+  # - "Prohibition-era bootlegging routes"
+  # - "narrow gauge railroad history"
+  # - "working cattle ranches open to visitors"
+  # - "sea glass and tide pool ecology"
+
+
+# ─────────────────────────────────────────────────
+# ROUTE [REQUIRED -- at least 2 destinations]
+# ─────────────────────────────────────────────────
+# List your destinations in order. One chapter is generated per destination.
+# The origin is where you're starting from -- it gives the generator
+# geographic context but doesn't get its own chapter.
+
+route:
+  origin: "Your Starting City, State"     # Where you're driving from
+
+  destinations:
+
+    - date: "2026-06-01"
+      city: "First Stop City, State"
+      notes: >
+        Optional notes for the script generator about this stop.
+        What's notable here? Any specific sites, springs, parks, or
+        history you want emphasized? The more you add, the more targeted
+        the content. Example: "Sits at the confluence of two rivers.
+        Historic mining town, boom/bust in 1880s. Good fly fishing."
+
+    - date: "2026-06-02"
+      city: "Second Stop City, State"
+      notes: >
+        Notes for this destination.
+
+    - date: "2026-06-03"
+      city: "Third Stop City, State"
+      notes: >
+        Notes for this destination.
+
+    # Add as many destinations as you need -- one per travel day works well.
+    # Destinations without notes still get full research treatment,
+    # but notes let you steer the emphasis.
+
+
+# ─────────────────────────────────────────────────
+# SHARED CONTEXT (optional but powerful)
+# ─────────────────────────────────────────────────
+# Any shared context between travelers -- a show you're both watching,
+# a book you're reading, a theme you want woven throughout.
+# The generator will find real historical connections to this context.
+
+shared_context:
+  # currently_watching: "Yellowstone (Paramount+) -- Dutton family ranching drama"
+  # shared_loves:
+  #   - history
+  #   - wildlife
+  #   - great food
+  # trip_theme: "following the path of early Spanish explorers"
+
+
+# ─────────────────────────────────────────────────
+# EPISODE SETTINGS
+# ─────────────────────────────────────────────────
+
+target_minutes: 65          # Aim for this length. Minimum is 60.
+minimum_minutes: 60         # Hard floor -- episode will not ship below this.
+words_per_minute: 145       # Ryan (en-GB-RyanNeural) speaks at ~145 wpm.
+                            # Adjust if you change voices:
+                            #   Faster voices (US casual): ~155 wpm
+                            #   Slower voices (formal/documentary): ~135 wpm
+target_words: 9425          # Calculated: target_minutes * words_per_minute
+minimum_words: 8700         # Calculated: minimum_minutes * words_per_minute
+
+
+# ─────────────────────────────────────────────────
+# EPISODE STRUCTURE (optional -- defaults work well)
+# ─────────────────────────────────────────────────
+# Which sections appear in every chapter and in what order.
+# Remove sections you don't want. Reorder to change chapter flow.
+
+episode_structure:
+  required_sections:
+    - geology_open:       "Lead with the origin story of this place -- how the landscape formed"
+    - science_and_nature: "Wildlife, plants, ecology, physiology"
+    - history_and_culture: "Human history -- indigenous, frontier, industrial, modern"
+    - local_tips:         "Restaurants, trails, and things to come back for"
+
+  # Optional: add a recurring thematic thread that appears in every chapter
+  # recurring_thread: "connection to the 1800s cattle drive era"
+
+
+# ─────────────────────────────────────────────────
+# CONTENT RULES
+# ─────────────────────────────────────────────────
+
+avoid_topics:
+  - political content
+  - unverified speculation
+  - pure tourist-brochure framing  # We want the real story, not a promotional script
+
+episode_style: >
+  Warm, intelligent, vivid, story-driven -- like a custom educational audiobook
+  narrated by a knowledgeable friend. Write for curious adults who want the real
+  story, not a simplified tourist summary. Every section should answer the question
+  "why does this place matter and what is it telling us?"
