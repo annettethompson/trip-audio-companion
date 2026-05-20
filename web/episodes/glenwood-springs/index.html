@@ -79,6 +79,27 @@
     .cta-name  { font-weight: 700; font-size: 1rem; color: #22543d; }
     .cta-desc  { font-size: .9rem; color: #276749; margin-top: 2px; }
 
+    /* AUDIO PLAYER */
+    .audio-player-section {
+      background: #f5f0e8;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0 24px 0;
+      text-align: center;
+    }
+    .audio-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #5c4a2a;
+      margin-bottom: 8px;
+    }
+    .audio-hint {
+      font-size: 0.85rem;
+      color: #7a6a50;
+      margin: 8px 0 0 0;
+      font-style: italic;
+    }
+
     /* FOOTER */
     .footer { text-align: center; padding: 30px 20px; font-size: var(--sz-sm); color: var(--c-subtle); border-top: 1px solid var(--c-border); margin-top: 20px; }
 
@@ -105,6 +126,14 @@
   <div class="meta">Colorado Hot Springs Road Trip · May 2026 · Elevation: 5,756 ft</div>
 </header>
 
+<div class="audio-player-section">
+  <div class="audio-label">🎧 Episode Audio</div>
+  <audio controls preload="metadata" style="width:100%; max-width:560px; border-radius:8px; margin:12px 0;">
+    <source src="episode.mp3" type="audio/mpeg">
+    Your browser doesn't support audio playback.
+  </audio>
+  <p class="audio-hint">Scroll through the cards below as you listen — each section matches the audio.</p>
+</div>
 
 <!-- ================================================================
      CHAPTER 1: WHY COLORADO HAS HOT SPRINGS
