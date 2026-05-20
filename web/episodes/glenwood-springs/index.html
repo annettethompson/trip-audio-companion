@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Glenwood Springs Audio Companion — geology, plants, wildlife, history. Scroll along as you listen.">
+  <title>Glenwood Springs | Audio Companion</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --max-w: 620px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --sz-body: 18px;
+      --sz-sm: 14px;
+      --sz-xs: 13px;
+      --lh: 1.65;
+      --c-bg: #fafafa;
+      --c-card: #ffffff;
+      --c-border: #e2e8f0;
+      --c-text: #1a202c;
+      --c-subtle: #718096;
+      --c-hdr-bg: #1a365d;
+      --c-hdr-txt: #ffffff;
+      --c-div-bg: #2d3748;
+      --c-div-txt: #e2e8f0;
+    }
+    html { font-size: var(--sz-body); scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--c-bg); color: var(--c-text); line-height: var(--lh); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding-bottom: 80px; }
+
+    /* HEADER */
+    .ep-hdr { background: var(--c-hdr-bg); color: var(--c-hdr-txt); padding: 32px 20px 28px; text-align: center; }
+    .ep-hdr .lbl { font-size: var(--sz-xs); letter-spacing: .12em; text-transform: uppercase; opacity: .75; margin-bottom: 8px; }
+    .ep-hdr h1 { font-size: 1.65rem; font-weight: 700; line-height: 1.25; margin-bottom: 10px; }
+    .ep-hdr .tag { font-size: 1rem; opacity: .85; max-width: 420px; margin: 0 auto; }
+    .ep-hdr .meta { margin-top: 14px; font-size: var(--sz-xs); opacity: .6; }
+
+    /* CHAPTER DIVIDER */
+    .ch { background: var(--c-div-bg); color: var(--c-div-txt); padding: 15px 20px; display: flex; align-items: center; gap: 12px; }
+    .ch .ln { flex: 1; height: 1px; background: rgba(255,255,255,.2); }
+    .ch .txt { font-size: .95rem; font-weight: 600; white-space: nowrap; }
+
+    /* CARD BASE */
+    .card { background: var(--c-card); border-bottom: 1px solid var(--c-border); }
+    .img-wrap { width: 100%; background: #e2e8f0; overflow: hidden; position: relative; }
+    .img-wrap img { width: 100%; display: block; height: auto; }
+    .img-credit { position: absolute; bottom: 0; right: 0; background: rgba(0,0,0,.55); color: #fff; font-size: 10px; padding: 3px 6px; max-width: 75%; text-align: right; line-height: 1.3; }
+    .body { padding: 16px 18px 18px; }
+    .cn { font-size: 1.15rem; font-weight: 700; margin-bottom: 2px; }
+    .sci { font-style: italic; font-size: var(--sz-sm); color: var(--c-subtle); margin-bottom: 10px; }
+    hr.r { border: none; border-top: 2px solid var(--c-border); margin: 10px 0; }
+    .lbl-s { font-size: var(--sz-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--c-subtle); margin-bottom: 4px; }
+    .txt { font-size: .95rem; line-height: 1.6; margin-bottom: 10px; }
+    .txt:last-child { margin-bottom: 0; }
+    ul.bul { list-style: none; padding: 0; margin: 0 0 10px; }
+    ul.bul li { font-size: .92rem; line-height: 1.55; padding: 3px 0 3px 18px; position: relative; }
+    ul.bul li::before { content: "•"; position: absolute; left: 4px; color: var(--c-subtle); }
+
+    /* BADGES */
+    .badge { display: inline-block; font-size: var(--sz-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border-radius: 4px; padding: 4px 10px; margin-bottom: 10px; }
+    .b-edible    { color: #276749; background: #c6f6d5; }
+    .b-medicinal { color: #2b6cb0; background: #bee3f8; }
+    .b-caution   { color: #b7791f; background: #fefcbf; }
+    .b-poisonous { color: #c53030; background: #fed7d7; }
+    .era-badge { display: inline-block; background: #2d3748; color: #e2e8f0; font-size: var(--sz-xs); font-weight: 600; border-radius: 4px; padding: 3px 9px; margin-bottom: 8px; }
+    .temp-badge { display: inline-block; background: #fff5f5; color: #c53030; font-weight: 700; font-size: 1.1rem; border-radius: 4px; padding: 4px 10px; margin-bottom: 8px; border: 1px solid #feb2b2; }
+
+    /* WARNINGS */
+    .poison-box { background: #fff5f5; border-left: 4px solid #c53030; border-radius: 0 4px 4px 0; padding: 10px 12px; margin: 8px 0 10px; font-size: .88rem; line-height: 1.55; color: #742a2a; }
+    .poison-box strong { display: block; margin-bottom: 3px; }
+    .look-box { background: #fffaf0; border-left: 4px solid #dd6b20; border-radius: 0 4px 4px 0; padding: 8px 12px; margin: 6px 0 8px; font-size: .88rem; color: #7b341e; }
+    .look-box strong { font-size: var(--sz-xs); text-transform: uppercase; letter-spacing: .06em; }
+
+    /* INFO / CTA */
+    .info-card { background: #ebf8ff; border-left: 4px solid #2b6cb0; }
+    .cta-card  { background: #f0fff4; border-left: 4px solid #276749; }
+    .cta-item  { padding: 8px 0; border-bottom: 1px solid #c6f6d5; }
+    .cta-item:last-child { border-bottom: none; }
+    .cta-name  { font-weight: 700; font-size: 1rem; color: #22543d; }
+    .cta-desc  { font-size: .9rem; color: #276749; margin-top: 2px; }
+
+    /* FOOTER */
+    .footer { text-align: center; padding: 30px 20px; font-size: var(--sz-sm); color: var(--c-subtle); border-top: 1px solid var(--c-border); margin-top: 20px; }
+
+    /* DARK MODE */
+    @media (prefers-color-scheme: dark) {
+      :root { --c-bg: #171923; --c-card: #1a202c; --c-border: #2d3748; --c-text: #e2e8f0; --c-subtle: #a0aec0; --c-hdr-bg: #0f2040; --c-div-bg: #1a202c; --c-div-txt: #a0aec0; }
+      .poison-box { background: #3d1212; color: #feb2b2; }
+      .look-box { background: #2d1b0a; color: #fbd38d; }
+      .info-card { background: #0d2033; }
+      .cta-card  { background: #0d2419; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ================================================================
+     EPISODE HEADER
+================================================================ -->
+<header class="ep-hdr">
+  <div class="lbl">🎧 Audio Companion</div>
+  <h1>Glenwood Springs</h1>
+  <div class="tag">Scroll along as you listen — photos and info cards match the audio order.</div>
+  <div class="meta">Colorado Hot Springs Road Trip · May 2026 · Elevation: 5,756 ft</div>
+</header>
+
+
+<!-- ================================================================
+     CHAPTER 1: WHY COLORADO HAS HOT SPRINGS
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">🌋 Chapter 1: Why Colorado Has Hot Springs</div><div class="ln"></div></div>
+
+<!-- Geology: Sawatch Fault / Geothermal System -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Hot_springs_pool_Glenwood_Springs_Colorado.jpg/800px-Hot_springs_pool_Glenwood_Springs_Colorado.jpg" alt="Glenwood Hot Springs Pool" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Jeffrey Beall (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <div class="cn">How a Hot Spring Works</div>
+    <hr class="r">
+    <div class="lbl-s">Age</div>
+    <div class="txt">Water you're soaking in fell as snow during the last Ice Age — approximately 20,000 years ago.</div>
+    <div class="lbl-s">Type</div>
+    <div class="txt">Deep-circulation geothermal system</div>
+    <div class="lbl-s">What you're looking at</div>
+    <div class="txt">Rain and snowmelt seep into fractures in the bedrock and descend miles underground. The Earth heats it at roughly 25–30°C per kilometer of depth. Hot water is less dense than cold water, so it rises back up along fault lines and emerges as a hot spring. It's a giant convection loop driven by the heat of the planet itself.</div>
+    <div class="lbl-s">Why it matters here</div>
+    <div class="txt">The Sawatch fault system running through Glenwood Springs provides the fracture network this system needs. Colorado has 93 known geothermal areas — more than almost any other state — because the Rocky Mountain uplift created thousands of miles of fault plumbing for water to circulate through.</div>
+  </div>
+</div>
+
+<!-- Geology: Leadville Limestone -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Glenwood_Canyon_Colorado_2.jpg/800px-Glenwood_Canyon_Colorado_2.jpg" alt="Glenwood Canyon walls showing limestone" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Jeffrey Beall (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <div class="cn">The Leadville Limestone — Colorado's Geothermal Aquifer</div>
+    <hr class="r">
+    <div class="lbl-s">Age</div>
+    <div class="txt">~340 million years old (Mississippian period)</div>
+    <div class="lbl-s">Type</div>
+    <div class="txt">Carbonate rock (marine limestone) — forms the massive white-gray cliff bands visible at canyon rims</div>
+    <div class="lbl-s">What you're looking at</div>
+    <div class="txt">This formation is why Glenwood Springs has hot springs at all. The Leadville Limestone is both permeable and soluble — it dissolves in mildly acidic rainwater, creating caves, fractures, and channels. These dissolved passages act as underground highways routing thermal water from deep circulation zones to surface springs. Glenwood Caverns Adventure Park above town is carved into this same rock.</div>
+    <div class="lbl-s">Why it matters here</div>
+    <div class="txt">The Leadville Limestone aquifer connects the geothermal heat source deep underground to the springs at river level. Water emerges at the surface at 111–124°F. The Big Spring alone flows at 143 liters per second — 2,263 gallons per minute of hot mineral water, continuously, for millennia.</div>
+  </div>
+</div>
+
+<!-- Geology: Paradox Formation -->
+<div class="card">
+  <div class="body">
+    <div class="cn">The Paradox Formation — Where the Minerals Come From</div>
+    <hr class="r">
+    <div class="lbl-s">Age</div>
+    <div class="txt">~300–310 million years old (Pennsylvanian period)</div>
+    <div class="lbl-s">Type</div>
+    <div class="txt">Evaporite sequence — salt, gypsum, anhydrite deposited when an inland sea repeatedly evaporated</div>
+    <div class="lbl-s">What you're looking at</div>
+    <div class="txt">As geothermal water circulates deep through the Paradox Formation, it dissolves enormous quantities of salt and minerals. The springs at Glenwood discharge approximately 120 cubic yards of dissolved salt into the Colorado River every single day. The water at Graves Spring reaches 21,500 mg/L total dissolved solids — more than half as salty as the ocean.</div>
+    <div class="lbl-s">Why it matters here</div>
+    <div class="txt">This is the source of the 14+ minerals in Iron Mountain's pools: iron, sulfate, chloride, sodium, calcium, magnesium, lithium. The iron that gives Iron Mountain its name — and its reddish tinge — comes from deep circulation through Paleozoic iron-bearing formations. On contact with air, dissolved ferrous iron oxidizes to ferric iron, the same chemistry that turns sandstone orange across the Colorado Plateau.</div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 2: IRON MOUNTAIN HOT SPRINGS
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">♨️ Chapter 2: Iron Mountain Hot Springs</div><div class="ln"></div></div>
+
+<!-- Hot Spring card -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Glenwood_Springs_hot_springs.jpg/800px-Glenwood_Springs_hot_springs.jpg" alt="Hot springs pools along the Colorado River" loading="lazy">
+    <div class="img-credit">Wikimedia Commons (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Iron Mountain Hot Springs</div>
+    <hr class="r">
+    <div class="lbl-s">Temperature</div>
+    <div class="temp-badge">🌡️ 98°F – 108°F across 16 pools</div>
+    <div class="lbl-s">Key minerals</div>
+    <div class="txt">Iron · Sulfate · Chloride · Sodium · Calcium (plus 9 more). Research suggests sulfate and magnesium absorb transdermally during soaking — the mechanism behind traditional balneotherapy.</div>
+    <div class="lbl-s">Geology</div>
+    <div class="txt">Sits directly on the south bank of the Colorado River at the intersection of the Sawatch fault system. As the river carved deeper into the canyon over 3+ million years, the springs tracked its path downward — the spring locations are a record of river incision history. This is rare enough that the site is a National Natural Landmark. The water you're soaking in fell as snow approximately 20,000 years ago.</div>
+    <div class="lbl-s">History</div>
+    <div class="txt">The Ute called these waters Yampah — "Big Medicine." Sheriff Bob Ware built the first formal bathhouse here in 1897. The facility operated under multiple names until it closed in 1966. Iron Mountain Hot Springs reopened on the historic site in 2015 after restoration.</div>
+  </div>
+</div>
+
+<!-- Info: Science of soaking at altitude -->
+<div class="card info-card">
+  <div class="body">
+    <div class="cn">The Altitude + Hot Spring Double Effect</div>
+    <hr class="r">
+    <div class="txt">You're at 5,756 feet — your heart rate is already slightly elevated and your blood vessels are mildly dilated to optimize oxygen delivery. Add 108°F water and the body responds with thermoregulatory vasodilation: massive blood flow to skin for cooling, cardiac output up, blood pressure down. A 2023 study found central blood pressure drops ~10 mmHg during hot spring immersion and heart rate rises up to 20%.</div>
+    <ul class="bul">
+      <li>Stay hydrated before getting in — altitude already increases respiratory water loss</li>
+      <li>Limit continuous soaking to 20 minutes per session</li>
+      <li>The cold plunge is not optional luxury — contrast hydrotherapy trains vascular reactivity</li>
+      <li>Dizziness or nausea in the pool: get out, cool down, drink water</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 3: GLENWOOD CANYON
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">🪨 Chapter 3: Glenwood Canyon — 1.7 Billion Years of Rock</div><div class="ln"></div></div>
+
+<!-- Geology: Precambrian basement -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Glenwood_Canyon_Colorado_River.jpg/800px-Glenwood_Canyon_Colorado_River.jpg" alt="Colorado River through Glenwood Canyon" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Jeffrey Beall (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Precambrian Basement Granite</div>
+    <hr class="r">
+    <div class="lbl-s">Age</div>
+    <div class="txt">1.7 billion years old — more than a third of Earth's entire history</div>
+    <div class="lbl-s">Type</div>
+    <div class="txt">Granite, gneiss, and schist — igneous and metamorphic rocks from ancient mountain-building events</div>
+    <div class="lbl-s">What you're looking at</div>
+    <div class="txt">At the deepest, narrowest sections of Glenwood Canyon, the Colorado River has cut all the way to the ancient basement rock. These are gray-pink, coarse-grained rocks with swirling banding textures from metamorphism and dark dikes cutting through lighter material. When these crystals formed, the most complex life on Earth was single-celled.</div>
+    <div class="lbl-s">Why it matters here</div>
+    <div class="txt">This is the foundation of North America — the same Precambrian basement visible at the Grand Canyon, but here you're driving past it at 65 mph. The canyon walls expose more than a third of Earth's entire history in a 12-mile drive.</div>
+  </div>
+</div>
+
+<!-- Geology: Great Unconformity -->
+<div class="card">
+  <div class="body">
+    <div class="cn">The Great Unconformity</div>
+    <hr class="r">
+    <div class="lbl-s">Age</div>
+    <div class="txt">The contact line represents 1.2 billion years of missing time</div>
+    <div class="lbl-s">Type</div>
+    <div class="txt">Erosional unconformity — where Cambrian-age sandstone (500 Ma) rests directly on Precambrian rock (1.7 Ga)</div>
+    <div class="lbl-s">What you're looking at</div>
+    <div class="txt">Look for where smooth, regular horizontal sedimentary layers seem pasted directly onto crumpled, contorted ancient rock below. That contact surface is 1.2 billion years of missing history — rock that was deposited, then stripped by erosion before the Cambrian sea advanced and laid down new sediment on top. You're looking at a gap longer than all animal life on Earth.</div>
+    <div class="lbl-s">Why it matters here</div>
+    <div class="txt">The same unconformity is famous at the Grand Canyon, but here you can see it from the road at 5,800 ft elevation while listening to an audio guide. The Cambrian sandstone just above it — the Sawatch Sandstone — is ancient beach sand from the first advance of a warm sea across this surface 500 million years ago.</div>
+  </div>
+</div>
+
+<!-- Geology: Dotsero Volcano -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Dotsero_crater.jpg/800px-Dotsero_crater.jpg" alt="Dotsero volcanic crater" loading="lazy">
+    <div class="img-credit">Wikimedia Commons (public domain)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Dotsero Volcano — Colorado's Only Active Volcano</div>
+    <hr class="r">
+    <div class="lbl-s">Age</div>
+    <div class="txt">Last eruption: 4,150 ± 300 years ago (approximately 2200 BCE — the Bronze Age)</div>
+    <div class="lbl-s">Type</div>
+    <div class="txt">Phreatomagmatic maar crater — formed when rising basaltic magma hit groundwater and steam exploded through overlying rock</div>
+    <div class="lbl-s">What you're looking at</div>
+    <div class="txt">Just east of Glenwood Canyon along I-70, Dotsero Crater is a 750-meter-wide, 76-meter-deep explosion crater. The basaltic lava flow it produced buried 168 acres of the Eagle River floodplain. Mammoths were already extinct; humans were present. Look for rough, dark, clinkery basalt near the road — it looks completely different from the surrounding sedimentary canyon walls.</div>
+    <div class="lbl-s">Why it matters here</div>
+    <div class="txt">The USGS classifies Dotsero as a "moderate threat" hazard. A massive landslide triggered by an earlier event dammed the Colorado River here, creating a lake. Into that lake settled volcanic ash from the Dotsero eruption — and that ash-rich clay layer, the "Gray Layer," now sits under I-70 and is responsible for multiple highway closures when it gets wet.</div>
+  </div>
+</div>
+
+<!-- Info: Engineering of I-70 -->
+<div class="card info-card">
+  <div class="body">
+    <div class="cn">Building I-70 Through the Canyon</div>
+    <hr class="r">
+    <div class="txt">The last 12-mile section of the entire US Interstate Highway System to be completed was Glenwood Canyon — finished in 1992 after 12 years of construction and $490 million. The canyon is so narrow that the two-direction roadway couldn't fit side by side, so one direction is elevated on viaducts above the other.</div>
+    <ul class="bul">
+      <li>40 bridges and viaducts</li>
+      <li>3 tunnels bored through solid rock</li>
+      <li>15 miles of retaining walls</li>
+      <li>30 million pounds of structural steel; 400,000 cubic yards of concrete</li>
+      <li>Rock faces stained after blasting to match natural exposures</li>
+    </ul>
+    <div class="txt">The canyon has been closed multiple times for rockfall and in 2021 was buried under feet of mud from debris flows after the Grizzly Creek wildfire. The walls shed rocks ranging from softball to Volkswagen-Beetle size regularly.</div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 4: PLANTS OF THE CANYON
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">🌿 Chapter 4: Plants of Glenwood Canyon</div><div class="ln"></div></div>
+
+<!-- Plant: Narrowleaf Cottonwood -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Populus_angustifolia.jpg/640px-Populus_angustifolia.jpg" alt="Narrowleaf Cottonwood" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Matt Lavin (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-medicinal">MEDICINAL</span>
+    <div class="cn">Narrowleaf Cottonwood</div>
+    <div class="sci">Populus angustifolia</div>
+    <hr class="r">
+    <div class="txt">Bark contains salicylates related to salicin in willow — used for pain, fever, and inflammation. The sticky resin on spring buds has antimicrobial properties.</div>
+    <div class="lbl-s">Right now in late May</div>
+    <div class="txt">The trees are in full new-growth leaf — that intense, translucent yellow-green that shifts to darker green through summer. The seed cotton hasn't released yet; in 2–4 weeks the white fluff will be flying everywhere. Each seed is attached to a silky fiber that keeps it airborne for miles.</div>
+    <div class="lbl-s">How to identify</div>
+    <ul class="bul">
+      <li>Long, narrow lance-shaped leaves — much longer than wide (unlike plains cottonwood's broader leaf)</li>
+      <li>Yellow-green catkins in spring appear before or with leaves</li>
+      <li>Forms dense stands along the river's alluvial banks — always near water</li>
+    </ul>
+    <div class="lbl-s">Ecology</div>
+    <div class="txt">Large groves may be a single genetic individual spreading via root sprouts, which creates the uniform appearance of many cottonwood stands. Their roots are enormously effective at stabilizing streambanks.</div>
+  </div>
+</div>
+
+<!-- Plant: Willow -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Salix_interior_wichita.jpg/800px-Salix_interior_wichita.jpg" alt="Willow catkins" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / USDA-NRCS PLANTS Database (public domain)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-medicinal">MEDICINAL</span>
+    <div class="cn">Willow</div>
+    <div class="sci">Salix spp.</div>
+    <hr class="r">
+    <div class="txt">Bark contains salicin — the natural precursor to aspirin. The Ute people used willow bark medicinally for thousands of years. Salicin converts to salicylic acid in the body, the same active compound as aspirin. Bayer synthesized the first commercial aspirin in 1897; this is the plant that made that possible.</div>
+    <div class="lbl-s">How to identify</div>
+    <ul class="bul">
+      <li>Long, narrow lance-shaped leaves (narrowleaf willow) along the Colorado River at this elevation</li>
+      <li>Fuzzy catkins (seed/flower clusters) appear before or with leaves in spring</li>
+      <li>Always found near water — streambanks, wet areas, riverbanks</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Plant: Gambel Oak -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Quercus_gambelii_7.jpg/640px-Quercus_gambelii_7.jpg" alt="Gambel Oak leaves" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Walter Siegmund (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-caution">CAUTION</span>
+    <div class="cn">Gambel Oak</div>
+    <div class="sci">Quercus gambelii</div>
+    <hr class="r">
+    <div class="txt">Acorns are edible after leaching — raw acorns contain bitter tannins that must be removed by soaking in multiple changes of water for 24–48 hours. After leaching, acorn meal has been a staple food for cultures worldwide. The Ute people processed Gambel oak acorns as an important food source.</div>
+    <div class="lbl-s">How to identify</div>
+    <ul class="bul">
+      <li>Deeply lobed leaves with rounded (not pointed) lobe tips — the rounded lobes distinguish it from eastern oaks</li>
+      <li>Dense shrubby thickets on rocky canyon slopes at 5,000–8,000 ft</li>
+      <li>In late May: in active bloom — tiny wind-pollinated flowers, new growth bright green</li>
+    </ul>
+    <div class="lbl-s">Why it dominates the canyon slopes</div>
+    <div class="txt">Gambel oak reproduces by seed AND by clonal root systems — entire hillsides can regenerate from a single root network after wildfire. This makes it the ecological foundation of the foothills zone. Mule deer shelter in its thickets; black bears gorge on its acorns in fall.</div>
+  </div>
+</div>
+
+<!-- Plant: Yampa -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Perideridia_gairdneri.jpg/640px-Perideridia_gairdneri.jpg" alt="Yampa / Yampah plant in flower" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Ben Legler (CC-BY)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-edible">EDIBLE</span>
+    <div class="cn">Yampa / Yampah</div>
+    <div class="sci">Perideridia gairdneri</div>
+    <hr class="r">
+    <div class="txt">Sacred food of the Ute people. The Yampa River, Yampa Valley, and Yampah Hot Springs ("Big Medicine") all take their name from this plant. Roots taste like carrots — the Ute ate them raw, cooked, and dried for winter.</div>
+    <div class="lbl-s">Edible parts</div>
+    <div class="txt">Roots (raw or cooked), seeds. The small tubers are white-fleshed with a mild carrot-like flavor.</div>
+    <div class="lbl-s">How to identify</div>
+    <ul class="bul">
+      <li>White umbrella-shaped flower clusters (umbel) on hollow stems, 1–3 ft tall</li>
+      <li>Fine, feathery leaves like a carrot top</li>
+      <li>Small round tubers underground, white-fleshed, carrot-flavored</li>
+    </ul>
+    <div class="poison-box">
+      <strong>⚠️ Critical look-alike warning</strong>
+      Poison hemlock and water hemlock look nearly identical and are both in this corridor. Do NOT harvest unless you are 100% certain of identification. This is not a plant to guess on.
+    </div>
+    <div class="look-box"><strong>Look-alikes: </strong>Poison hemlock (purple-spotted stems) · Water hemlock (chambered roots, near water — DEADLY)</div>
+  </div>
+</div>
+
+<!-- Plant: Wild Onion -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Allium_cernuum_4.jpg/640px-Allium_cernuum_4.jpg" alt="Nodding Wild Onion flowers" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Walter Siegmund (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-edible">EDIBLE</span>
+    <div class="cn">Wild Onion / Nodding Onion</div>
+    <div class="sci">Allium cernuum</div>
+    <hr class="r">
+    <div class="txt">All parts edible — bulb, leaves, and flowers. Strong onion smell is the definitive identification feature and the critical safety check.</div>
+    <div class="lbl-s">Edible parts</div>
+    <div class="txt">Bulb, leaves, flowers — raw or cooked. Stronger than store onions.</div>
+    <div class="lbl-s">How to identify</div>
+    <ul class="bul">
+      <li>Strong onion/garlic smell — crush a leaf. If it doesn't smell like onion, do NOT eat it.</li>
+      <li>Nodding (drooping) pink to white flower head on a slender stem, 6–18 inches tall</li>
+      <li>Narrow, grass-like leaves from the base</li>
+    </ul>
+    <div class="poison-box">
+      <strong>⚠️ Death Camas looks identical</strong>
+      Death camas (Anticlea elegans) grows in the same habitat and can look nearly identical to wild onion. The ONLY reliable field distinction: wild onion smells like onion. Death camas has no onion smell whatsoever. The smell test is not optional.
+    </div>
+    <div class="look-box"><strong>Look-alikes: </strong>Death camas (Anticlea elegans) — POISONOUS, no onion smell, upright white flowers</div>
+  </div>
+</div>
+
+<!-- Plant: Death Camas -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Anticlea_elegans_8.jpg/640px-Anticlea_elegans_8.jpg" alt="Death camas flowers" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Matt Lavin (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-poisonous">POISONOUS</span>
+    <div class="cn">Death Camas</div>
+    <div class="sci">Anticlea elegans</div>
+    <hr class="r">
+    <div class="poison-box">
+      <strong>⚠️ DO NOT CONSUME</strong>
+      Contains zygacine and related steroidal alkaloids that cause vomiting, severe drop in blood pressure, slow heart rate, and can be fatal. Looks like wild onion but has NO onion smell — the absence of smell is the danger signal.
+    </div>
+    <div class="lbl-s">How to identify (to avoid)</div>
+    <ul class="bul">
+      <li>Grass-like leaves emerging from a bulb — deceptively similar to wild onion</li>
+      <li>White to cream flowers in an upright cluster (not nodding like wild onion)</li>
+      <li>No onion or garlic smell whatsoever — this absence is the critical warning</li>
+    </ul>
+    <div class="look-box"><strong>Key rule: </strong>If it looks like wild onion but doesn't smell like onion — it is death camas. Do not eat it.</div>
+  </div>
+</div>
+
+<!-- Plant: Poison Hemlock -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Conium_maculatum_detail.jpg/640px-Conium_maculatum_detail.jpg" alt="Poison hemlock purple-spotted stems" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / H. Zell (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-poisonous">POISONOUS</span>
+    <div class="cn">Poison Hemlock</div>
+    <div class="sci">Conium maculatum</div>
+    <hr class="r">
+    <div class="poison-box">
+      <strong>⚠️ DO NOT CONSUME</strong>
+      One of the most toxic plants in North America. Socrates was executed with a hemlock preparation. Contains coniine, which causes ascending paralysis starting in the legs — death by respiratory failure.
+    </div>
+    <div class="txt">The purple or reddish-purple blotchy spots on hollow green stems are the field identification key. White umbrella-shaped flower clusters similar to yampa and wild carrot. Musty, unpleasant mousy smell when leaves are crushed.</div>
+    <div class="lbl-s">How to identify (to avoid)</div>
+    <ul class="bul">
+      <li>Purple/reddish blotchy spots on hollow stems — this is the definitive feature</li>
+      <li>White umbrella flower clusters (umbel) — similar to many edible plants</li>
+      <li>Musty, unpleasant mousy smell (not a pleasant herb smell)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Plant: Water Hemlock -->
+<div class="card">
+  <div class="body">
+    <span class="badge b-poisonous">EXTREMELY POISONOUS</span>
+    <div class="cn">Water Hemlock</div>
+    <div class="sci">Cicuta douglasii</div>
+    <hr class="r">
+    <div class="poison-box">
+      <strong>⚠️ USDA: "Most violently toxic plant in North America"</strong>
+      Cicutoxin causes violent grand mal convulsions within 15–30 minutes of ingestion. There is no antidote. Always near water — if you see an umbel plant at the water's edge, treat it as water hemlock until proven otherwise.
+    </div>
+    <div class="lbl-s">How to identify (to avoid)</div>
+    <ul class="bul">
+      <li>White umbrella flower clusters, 2–6 ft tall, always near water or in wet areas</li>
+      <li>If root is accidentally exposed: chambered interior with partitions and yellowish sap — unique to this species and a fatal-mistake signal</li>
+      <li>Leaf veins run to the notches between teeth (not to the tips) — an unusual botanical feature</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Plant: Wild Strawberry -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Fragaria_virginiana_NRCS.jpg/640px-Fragaria_virginiana_NRCS.jpg" alt="Wild strawberry plant" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / USDA-NRCS (public domain)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-edible">EDIBLE</span>
+    <div class="cn">Wild Strawberry</div>
+    <div class="sci">Fragaria virginiana</div>
+    <hr class="r">
+    <div class="txt">The parent species of all cultivated strawberries. The small wild berries are intensely flavored — far more concentrated than anything from a grocery store. All parts edible.</div>
+    <div class="lbl-s">Edible parts</div>
+    <div class="txt">Berries when ripe (June–August), petals, young leaves as tea</div>
+    <div class="lbl-s">How to identify</div>
+    <ul class="bul">
+      <li>Three toothed leaflets in a clover-like arrangement, low-growing</li>
+      <li>White five-petaled flowers with yellow centers in spring</li>
+      <li>Small red berries June–August — much smaller but intensely sweeter than store berries</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 5: WILDLIFE
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">🦅 Chapter 5: Wildlife of Glenwood Canyon</div><div class="ln"></div></div>
+
+<!-- Animal: Bighorn Sheep -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Rocky_Mountain_Bighorn_Sheep.jpg/800px-Rocky_Mountain_Bighorn_Sheep.jpg" alt="Rocky Mountain Bighorn Sheep on cliff" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Acroterion (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Rocky Mountain Bighorn Sheep</div>
+    <div class="sci">Ovis canadensis</div>
+    <hr class="r">
+    <div class="lbl-s">Where to spot</div>
+    <div class="txt">Rocky canyon walls along I-70 east of Glenwood Springs. Look for them on cliff faces that seem impossibly steep — that's exactly where they prefer to be.</div>
+    <div class="lbl-s">Habitat</div>
+    <div class="txt">Rocky canyon walls, cliff faces, steep talus · 5,000–14,000 ft</div>
+    <div class="lbl-s">Active</div>
+    <div class="txt">Daytime — diurnal. Most visible in morning light on south-facing canyon walls.</div>
+    <div class="lbl-s">Interesting</div>
+    <div class="txt">Their hooves have a hard outer edge for traction and a soft inner pad for grip — engineered for moving at speed on near-vertical rock. In late May ewes are lambing on ledges that seem impossible. The lambs are walking within hours of birth. In late May look for ewes accompanied by small, spindly lambs on precarious-looking ledges.</div>
+  </div>
+</div>
+
+<!-- Animal: Osprey -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Osprey_in_flight.jpg/800px-Osprey_in_flight.jpg" alt="Osprey in flight" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Imran Shah (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Osprey</div>
+    <div class="sci">Pandion haliaetus</div>
+    <hr class="r">
+    <div class="lbl-s">Where to spot</div>
+    <div class="txt">Colorado River through Glenwood Canyon and Glenwood Springs. Look for platform nests on power poles and bridge structures. Watch for hovering 30–60 feet above the river before plunging.</div>
+    <div class="lbl-s">Habitat</div>
+    <div class="txt">Rivers and lakes with fish — along the Colorado River corridor · 4,000–8,000 ft</div>
+    <div class="lbl-s">Active</div>
+    <div class="txt">Daytime active hunter. In late May, actively nesting — eggs laid or actively incubating.</div>
+    <div class="lbl-s">Interesting</div>
+    <div class="txt">The only North American raptor that dives completely underwater to catch fish. Feet have reversible outer toes and rough, spiny pads for gripping slippery fish. They take trout regularly from the Colorado River. Watch for the diagnostic hover-then-plunge hunting sequence.</div>
+  </div>
+</div>
+
+<!-- Animal: American Black Bear -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Black_bear_large.jpg/800px-Black_bear_large.jpg" alt="American black bear" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Yathin S Krishnappa (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <div class="cn">American Black Bear</div>
+    <div class="sci">Ursus americanus</div>
+    <hr class="r">
+    <div class="lbl-s">Where to spot</div>
+    <div class="txt">Gambel oak thickets on canyon slopes; occasionally in town at dawn/dusk. Spring is prime time — they're hungry after winter dormancy and actively foraging.</div>
+    <div class="lbl-s">Habitat</div>
+    <div class="txt">Oak thickets, riparian corridors, aspen/conifer forest · 4,000–11,000 ft</div>
+    <div class="lbl-s">Active</div>
+    <div class="txt">Dawn, dusk, and night. Most active in spring and fall when foraging intensively.</div>
+    <div class="lbl-s">Interesting</div>
+    <div class="txt">Black bears in Colorado are often brown, cinnamon, or blonde — not always black. In late May they're recently out of dens and intensely hungry, foraging on spring grasses and insects before berries ripen in July. Their sense of smell is 7x stronger than a bloodhound's. Never leave food in vehicles in Glenwood Springs — the town has bear-proof trash regulations for good reason.</div>
+  </div>
+</div>
+
+<!-- Animal: Mule Deer -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Mule_Deer_Odocoileus_hemionus_-_Mather_Campground.jpg/800px-Mule_Deer_Odocoileus_hemionus_-_Mather_Campground.jpg" alt="Mule deer" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / National Park Service (public domain)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Mule Deer</div>
+    <div class="sci">Odocoileus hemionus</div>
+    <hr class="r">
+    <div class="lbl-s">Where to spot</div>
+    <div class="txt">Gambel oak hillsides around Glenwood Springs; meadows along Highway 82 toward Carbondale at dawn and dusk. Common enough to see in town.</div>
+    <div class="lbl-s">Active</div>
+    <div class="txt">Dawn and dusk (crepuscular). Rests in brush thickets midday.</div>
+    <div class="lbl-s">Interesting</div>
+    <div class="txt">Named for their large mule-like ears that move independently. In late May does are giving birth to spotted fawns — fawns found alone are NOT orphaned. The mother is nearby and returns to nurse several times a day. The spotted coat is camouflage, not a sign of distress.</div>
+  </div>
+</div>
+
+<!-- Animal: Golden Eagle -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Aquila_chrysaetos_1_2.jpg/800px-Aquila_chrysaetos_1_2.jpg" alt="Golden Eagle soaring" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Tony Hisgett (CC-BY)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Golden Eagle</div>
+    <div class="sci">Aquila chrysaetos</div>
+    <hr class="r">
+    <div class="lbl-s">Where to spot</div>
+    <div class="txt">Soaring on canyon updrafts and thermals above canyon rims along I-70. Watch for large dark birds using the rising air without flapping.</div>
+    <div class="lbl-s">Active</div>
+    <div class="txt">Daytime — uses thermals and canyon updrafts for soaring efficiency.</div>
+    <div class="lbl-s">Interesting</div>
+    <div class="txt">Hunts by soaring on canyon updrafts and diving at speeds exceeding 150 mph. Entirely dark brown plumage with a golden sheen on the back of the head — visible in good light. Distinguished from bald eagles by the all-dark body (no white head or tail).</div>
+  </div>
+</div>
+
+<!-- Animal: American Dipper -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Cinclus_mexicanus_-Alaska_-USA-8.jpg/800px-Cinclus_mexicanus_-Alaska_-USA-8.jpg" alt="American Dipper on a rock" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Global Senses (CC-BY)</div>
+  </div>
+  <div class="body">
+    <div class="cn">American Dipper</div>
+    <div class="sci">Cinclus mexicanus</div>
+    <hr class="r">
+    <div class="lbl-s">Where to spot</div>
+    <div class="txt">Fast-moving sections of the Roaring Fork River and Colorado River tributaries. Look for a plump, gray, wren-like bird bobbing up and down on a rock in turbulent water.</div>
+    <div class="lbl-s">Interesting</div>
+    <div class="txt">The only truly aquatic songbird in North America. It walks underwater on stream bottoms to catch invertebrates, can swim, and dips repeatedly up and down. It has an extra eyelid (nictitating membrane) and can close its nostrils. It sings even through Colorado winters — one of the cheerful surprises of cold mountain streams.</div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 6: GLENWOOD SPRINGS HISTORY
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">🏛️ Chapter 6: Glenwood Springs History</div><div class="ln"></div></div>
+
+<!-- History: Ute People -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Chief_Ouray_and_Chipeta.jpg/640px-Chief_Ouray_and_Chipeta.jpg" alt="Chief Ouray and Chipeta" loading="lazy">
+    <div class="img-credit">Wikimedia Commons (public domain)</div>
+  </div>
+  <div class="body">
+    <span class="era-badge">Millennia before 1881</span>
+    <div class="cn">The Ute People and Yampah Springs</div>
+    <hr class="r">
+    <div class="txt">The Ute people — specifically the Parianuche band, the "elk people" — had been using the Glenwood Springs hot springs for centuries before any European arrived in Colorado. They called the springs Yampah, meaning "Big Medicine." Warriors soaked here after battles. The sick were brought to the vapor caves. The springs were not recreational amenity; they were medicine, ritual, and sacred space.</div>
+    <div class="txt">Chief Ouray negotiated treaty after treaty through the 1860s and 1870s as settler pressure increased. By 1874 he accepted a treaty surrendering four million acres for compensation that was never delivered. The Meeker Massacre of 1879 — triggered when Indian Agent Nathan Meeker tried to plow under the Utes' horse pasture and force them into farming — provided the political justification settlers had been waiting for. In August 1881, the Army force-marched the Uncompahgre Ute band 225 miles to a Utah reservation. The town of Glenwood Springs was incorporated four years later, in 1885. The hot springs they had used for millennia became the foundation of a resort economy within a generation.</div>
+  </div>
+</div>
+
+<!-- History: Glenwood Hot Springs Pool -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Hot_springs_pool_Glenwood_Springs_Colorado.jpg/800px-Hot_springs_pool_Glenwood_Springs_Colorado.jpg" alt="Glenwood Hot Springs Pool" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Jeffrey Beall (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <span class="era-badge">July 4, 1888</span>
+    <div class="cn">World's Largest Hot Springs Pool — Walter Devereux's Vision</div>
+    <hr class="r">
+    <div class="txt">Walter Devereux, an engineer and silver baron, arrived in 1886 and had an audacious vision: build the largest hot springs pool in the world. Workers diverted the Colorado River to expose the original riverbed, excavated, and paved it in fire brick. The walls were built of Peachblow sandstone quarried near Basalt. The bathhouse featured 42 sunken Roman vapor baths in imported porcelain — 30 for men, 12 for women — plus parlors, a gymnasium, and a physician's office. Cost: $100,000 (roughly $3 million today).</div>
+    <div class="txt">The pool opened July 4, 1888. Measuring 615 feet by 75 feet — longer than two football fields — it holds one million gallons and is fed by the Yampah Spring at over 2,000 gallons per minute. It is still the world record for largest hot springs pool. Within a decade, Glenwood Hot Springs was a destination for wealthy Victorians from across the country.</div>
+  </div>
+</div>
+
+<!-- History: Hotel Colorado -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Hotel_Colorado_Glenwood_Springs.jpg/800px-Hotel_Colorado_Glenwood_Springs.jpg" alt="Hotel Colorado, Glenwood Springs" loading="lazy">
+    <div class="img-credit">Wikimedia Commons (public domain)</div>
+  </div>
+  <div class="body">
+    <span class="era-badge">1893</span>
+    <div class="cn">Hotel Colorado — "The Medici Palace of the West"</div>
+    <hr class="r">
+    <div class="txt">Flush with pool success, Devereux commissioned Hotel Colorado in 1891, completed 1893. Designed by New York architects, modeled on the Villa de Medici in Rome. Construction cost $850,000 — over $23 million today. The grand opening featured an orchestra, fireworks, and roughly 300 wealthy families. A 25-foot waterfall cascaded in the central lounge; an electrically-lit outdoor fountain shot waterspouts hundreds of feet into the air.</div>
+    <div class="txt">President Theodore Roosevelt used the hotel as a temporary White House in 1905, hosting a three-week hunting trip and addressing crowds from the balcony. President Taft followed in 1909. "Unsinkable" Molly Brown — the Titanic survivor — was a regular guest. During Prohibition, the notorious Diamond Jack Alterie used the hotel as his headquarters and reportedly hosted Al Capone in clandestine speakeasies. In 1943, the U.S. Navy leased the entire building as a convalescent hospital for veterans.</div>
+  </div>
+</div>
+
+<!-- History: Doc Holliday -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Doc_holliday.jpg/480px-Doc_holliday.jpg" alt="Doc Holliday photograph" loading="lazy">
+    <div class="img-credit">Wikimedia Commons (public domain)</div>
+  </div>
+  <div class="body">
+    <span class="era-badge">November 8, 1887</span>
+    <div class="cn">Doc Holliday — His Last 57 Days</div>
+    <hr class="r">
+    <div class="txt">John Henry "Doc" Holliday was 35 when he arrived in Glenwood Springs in summer 1887. Born in Georgia and trained as a dentist (graduated 1872), he had contracted tuberculosis in Atlanta. The disease drove him west to drier climates and eventually to gambling. By the time he arrived here, he had survived the gunfight at the O.K. Corral in Tombstone (1881) alongside Wyatt Earp, a federal manhunt, and years of frontier drifting through Dodge City, Denver, and Leadville. Wyatt Earp called him "the deadliest man with a six gun I ever knew."</div>
+    <div class="txt">Holliday came for the hot springs and vapor caves, then being promoted as tuberculosis cures. He checked into the Hotel Glenwood Springs and worked briefly as a dentist while gambling. He spent 57 days here. On the morning of November 8, 1887, he asked for a glass of whiskey, drank it, looked down at his bare feet — he had always expected to die in a gunfight, boots on — and reportedly said "This is funny." Then he died at 36. He is buried in Linwood Cemetery. The exact grave location is uncertain — which, some say, is how he would have wanted it.</div>
+  </div>
+</div>
+
+<!-- History: Vapor Caves -->
+<div class="card">
+  <div class="body">
+    <span class="era-badge">Naturally formed over millions of years</span>
+    <div class="cn">Yampah Vapor Caves — North America's Only Natural Vapor Caves</div>
+    <hr class="r">
+    <div class="txt">The Yampah Spa &amp; Vapor Caves at 709 E. 6th Street contain the only naturally occurring vapor caves in North America. They are not spa grottos; they are actual underground chambers carved by geothermal processes through the Leadville Limestone. Inside: approximately 110–113°F with 100% relative humidity. Three chambers connected by concrete-reinforced tunnel with marble benches.</div>
+    <div class="txt">Formation mechanism: a "mixing zone cave" where descending meteoric water and ascending geothermal water combine. Both carry dissolved CO₂, forming carbonic acid — which dissolves the Leadville Limestone far more aggressively than either water source alone. The hot spring water flowing through the cave floors at 125°F contains 34 identified minerals including sodium (6,600 mg/L), chloride (9,000 mg/L), lithium, and boron.</div>
+    <div class="txt">Ute warriors came here to treat wounds and to pray. The Southern Ute Tribal Historic Preservation Officer has described the caves as analogous to their sweat lodges, "going back into Mother Earth." The Arapaho and Cheyenne also fought the Ute for access to these springs — a water source this valuable was worth fighting over in a pre-pharmaceutical world. The caves have been in continuous commercial operation since 1893.</div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 7: ALTITUDE & YOUR BODY
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">🫀 Chapter 7: Altitude at 5,756 Feet</div><div class="ln"></div></div>
+
+<div class="card info-card">
+  <div class="body">
+    <div class="cn">What Your Body Does at 5,756 Feet</div>
+    <hr class="r">
+    <div class="txt">At 5,756 feet, atmospheric pressure is approximately 83% of sea-level pressure. Each breath contains about 17% less oxygen — not because the fraction changes (it's still 20.9% everywhere), but because total air molecules per breath decreases with altitude. This is moderate altitude. Most healthy people adapt well, but the body notices.</div>
+    <div class="lbl-s">Immediate responses (hours 1–12)</div>
+    <ul class="bul">
+      <li><strong>Deeper breathing:</strong> Respiratory center detects lower blood O₂ and increases breath depth. You may notice breathing harder than expected during light exertion.</li>
+      <li><strong>Heart rate up 5–15 bpm:</strong> Cardiovascular system compensates by increasing cardiac output.</li>
+      <li><strong>Blood redistribution:</strong> More blood routed to lung regions normally under-perfused at sea level, maximizing gas exchange surface area.</li>
+    </ul>
+    <div class="lbl-s">Sleep</div>
+    <div class="txt">Periodic breathing is common the first night or two at altitude — rhythmic oscillation between rapid deep breathing and shallow/absent breathing. It typically doesn't wake you but reduces sleep quality. Normal and temporary.</div>
+    <div class="lbl-s">Hydration</div>
+    <div class="txt">Increased breathing rate at altitude significantly raises respiratory water loss. The dry mountain air compounds this. Drink 3–4 liters per day even without hard exercise. Alcohol is more dehydrating at altitude.</div>
+    <div class="lbl-s">Full acclimatization</div>
+    <div class="txt">1–3 days at this elevation. Full polycythemia (increased red blood cell mass) takes weeks. You'll feel noticeably better by day 2.</div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 8: HANGING LAKE — THE HIKE YOU'RE ON RIGHT NOW
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">🏞️ Chapter 8: Hanging Lake — The Hike You're On Right Now</div><div class="ln"></div></div>
+
+<!-- Hanging Lake Overview: Travertine Geology -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Hanging_Lake_Colorado.jpg/800px-Hanging_Lake_Colorado.jpg" alt="Hanging Lake turquoise water and travertine" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Larry Lamsa (CC-BY)</div>
+  </div>
+  <div class="body">
+    <div class="cn">Hanging Lake — How This Exists</div>
+    <hr class="r">
+    <div class="lbl-s">National Natural Landmark</div>
+    <div class="txt">Designated June 2011 by the National Park Service as "an outstanding example of a lake formed by travertine deposition around the shoreline." One of only two comparable systems in the US — the other is Yellowstone's terrace system.</div>
+    <div class="lbl-s">How the lake formed</div>
+    <div class="txt">Two events created this: First, a geological fault caused a section of the valley floor to drop, leaving the lake's future basin hanging above the main canyon. Second — and this is the extraordinary part — Dead Horse Creek above has been building the lake's retaining wall for thousands of years. The creek water is supersaturated with dissolved calcium carbonate (limestone). When it flows over the lake's edge and contacts air, it loses CO₂. That CO₂ loss drops its ability to hold calcium carbonate in solution, so the calcium carbonate precipitates out as a dense stone called travertine. Layer by layer, the travertine rim has built up into the natural dam that now holds the lake in the air. It's still building. The lake is still growing.</div>
+    <div class="lbl-s">Why the water is that color</div>
+    <div class="txt">Two mechanisms produce the turquoise: First, extremely fine suspended particles of calcium carbonate scatter light preferentially at blue wavelengths — the same physics that makes glacial lakes blue. Second, the dissolved mineral content of the water gives it optical density that deepens the blue tones. You can see the bottom 10–15 feet down. The color is real; it always looks photoshopped.</div>
+    <div class="lbl-s">The fragility</div>
+    <div class="txt">The travertine is delicate enough that the oils from human skin can destroy it. Swimming is permanently banned. The boardwalk at the lake exists specifically to prevent foot contact with the formations. Those logs extending into the lake have had travertine building up on them for decades — touching them accelerates their destruction.</div>
+  </div>
+</div>
+
+<!-- Spouting Rock -->
+<div class="card">
+  <div class="body">
+    <div class="cn">Spouting Rock — Water Through Solid Rock</div>
+    <hr class="r">
+    <div class="lbl-s">What you're seeing</div>
+    <div class="txt">A short detour (10–15 min) above the lake leads to a powerful waterfall emerging directly from a hole in the limestone cliff face — not flowing over the top of the cliff, but shooting horizontally out of solid rock.</div>
+    <div class="lbl-s">How it works</div>
+    <div class="txt">Dead Horse Creek, flowing above, percolates through fractures and joints in the Leadville Limestone. When the descending water hits an impermeable layer, it can no longer go down and is redirected horizontally, following dissolution channels through the rock until it finds an exit: the cliff face at Spouting Rock. The limestone has essentially been plumbing itself — water dissolving fractures wider over thousands of years, creating its own subsurface pipe system. What looks like geology doing magic is the Leadville Limestone doing exactly what it always does: routing water through its own body. The same process carved the Vapor Caves in town and Glenwood Caverns on the mountain above.</div>
+  </div>
+</div>
+
+<!-- Maidenhair Fern -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Adiantum_capillus-veneris_Mexico.jpg/640px-Adiantum_capillus-veneris_Mexico.jpg" alt="Maidenhair fern Adiantum capillus-veneris growing on wet cliff face" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Alexis Téllez-Rodríguez (CC-BY-SA)</div>
+  </div>
+  <div class="body">
+    <span class="badge b-caution">PROTECTED — DO NOT PICK</span>
+    <div class="cn">Maidenhair Fern</div>
+    <div class="sci">Adiantum capillus-veneris</div>
+    <hr class="r">
+    <div class="txt">The curtains of bright green, fan-shaped leaflets draping from the wet cliff faces and travertine walls are maidenhair fern — one of the most distinctive plants at Hanging Lake and one of the rarest plants in the canyon country at this elevation.</div>
+    <div class="lbl-s">Why it's rare here</div>
+    <div class="txt">Maidenhair fern requires continuously moist conditions — the kind found only at spring seeps, waterfall spray zones, and perpetually wet cliff faces. In Colorado's dry mountain climate, those conditions exist in only a handful of microhabitats. Hanging Lake's travertine seeps and waterfall spray create exactly the right environment: wet limestone, constant humidity, calcium-rich water. The USGS documents this species as a defining plant of "hanging garden" communities on the Colorado Plateau, growing on "the back and face walls" of seep environments.</div>
+    <div class="lbl-s">What hanging gardens are</div>
+    <div class="txt">The curtains of plant life on the wet cliff faces here are a specific ecological community called hanging gardens — moisture-dependent plants colonizing cliff faces and canyon walls where water seeps from the rock. They are biological islands: surrounded by dry, rocky habitat on all sides but maintaining a perpetually moist microenvironment. The Hanging Lake hanging gardens also host Sullivantia (Sullivantia hapemanii var. pupusii), a globally imperiled Colorado endemic ranked G3T3 by NatureServe — the largest known population in the Southern Rocky Mountain Region grows here.</div>
+    <div class="lbl-s">How to recognize maidenhair fern</div>
+    <ul class="bul">
+      <li>Delicate, fan-shaped leaflets, each about fingernail-sized, bright translucent green</li>
+      <li>On extremely thin, wiry, near-black stems — the contrast between dark stem and bright leaflet is striking</li>
+      <li>Grows in drooping curtains from wet rock faces — not in soil</li>
+      <li>When sunlight hits it on a wet travertine wall, it glows</li>
+    </ul>
+  </div>
+</div>
+
+<!-- American Dipper -->
+<div class="card">
+  <div class="img-wrap">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Cinclus_mexicanus_-Alaska_-USA-8.jpg/800px-Cinclus_mexicanus_-Alaska_-USA-8.jpg" alt="American Dipper on a rock in fast water" loading="lazy">
+    <div class="img-credit">Wikimedia Commons / Global Senses (CC-BY)</div>
+  </div>
+  <div class="body">
+    <div class="cn">American Dipper — The Bird Walking Underwater</div>
+    <div class="sci">Cinclus mexicanus</div>
+    <hr class="r">
+    <div class="lbl-s">Where to look</div>
+    <div class="txt">Dead Horse Creek — the creek you've been hiking alongside the entire trail. The Colorado Birding Trail documents American Dippers as residents "in the wet spray and near the falls" at Hanging Lake. Look for a small, plump, uniformly slate-gray bird, robin-sized, standing on a rock in the rushing water and rapidly dipping its entire body up and down. Then watch it walk off the rock into the creek.</div>
+    <div class="lbl-s">What it's doing</div>
+    <div class="txt">North America's only truly aquatic songbird. It forages by walking along the stream bottom on submerged rocks, picking up aquatic insects, larvae, and small fish from under stones and woody debris. A typical dive lasts 5–15 seconds. It walks against the current and grips submerged rocks to stay in place.</div>
+    <div class="lbl-s">How it survives underwater</div>
+    <ul class="bul">
+      <li>Transparent third eyelid (nictitating membrane) for underwater vision</li>
+      <li>Nostrils that seal shut when submerged</li>
+      <li>Unusually high hemoglobin levels — more oxygen per breath than most birds</li>
+      <li>Dense, waterproof feathering with an oversized preen gland secreting waterproofing oil</li>
+      <li>Short, strong wings used for swimming as well as flight</li>
+    </ul>
+    <div class="lbl-s">The bobbing</div>
+    <div class="txt">The constant up-down dip is involuntary-seeming and continuous — the bird does it even when standing still. It may improve vision into the water, or serve as communication in the noisy stream environment where calls are hard to hear. Dippers sing year-round, even through Colorado winters. Their song from a snowy creek bank in January is one of the finest surprises in mountain hiking.</div>
+    <div class="lbl-s">In May</div>
+    <div class="txt">Adults are actively nesting. Dipper nests are dome-shaped constructions of moss built into cliff faces, under bridges, or behind waterfalls — the spray zone is preferred, which keeps nests moist and somewhat inaccessible to predators. If you see a dipper carrying food, a nest is nearby.</div>
+  </div>
+</div>
+
+<!-- Trail Tips Practical Card -->
+<div class="card info-card">
+  <div class="body">
+    <div class="cn">Trail Tips — What You Need to Know</div>
+    <hr class="r">
+    <div class="lbl-s">The basics</div>
+    <ul class="bul">
+      <li><strong>Distance:</strong> approximately 2.4 miles round trip (1.2 miles each way)</li>
+      <li><strong>Elevation gain:</strong> 1,000–1,200 feet — steep the entire way, no flat sections</li>
+      <li><strong>Creek crossings:</strong> several footbridges over Dead Horse Creek on the way up</li>
+      <li><strong>No cell service</strong> at trailhead or on trail</li>
+      <li><strong>No restrooms</strong> at the lake — facilities at the trailhead only</li>
+    </ul>
+    <div class="lbl-s">At the lake — hard rules</div>
+    <ul class="bul">
+      <li>🚫 No swimming — permanently banned to protect travertine (oil from skin destroys it)</li>
+      <li>🚫 No fishing, no dogs, no drones</li>
+      <li>🚫 Do not touch the floating logs or reach into the water</li>
+      <li>✅ Stay on the boardwalk at all times</li>
+      <li>✅ Spouting Rock detour is 10–15 min above the lake — worth it</li>
+    </ul>
+    <div class="lbl-s">Permit system</div>
+    <div class="txt">Timed-entry permits required year-round. Peak season (May–October): $12 per person. The shuttle from Hanging Lake Welcome Center runs every 45 minutes, 6:45 a.m. to 4:30 p.m. Reservations through visitglenwood.com/hanginglake/. The permit system launched in 2019 after overcrowding began destroying travertine formations that took thousands of years to form.</div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     CHAPTER 9: COME BACK FOR THIS
+================================================================ -->
+<div class="ch"><div class="ln"></div><div class="txt">📍 Chapter 9: Come Back for This</div><div class="ln"></div></div>
+
+<div class="card cta-card">
+  <div class="body">
+    <div class="cn">Glenwood Springs — Worth a Return Trip</div>
+    <hr class="r">
+
+    <div class="cta-item">
+      <div class="cta-name">🚣 Colorado River Whitewater Rafting</div>
+      <div class="cta-desc">The Shoshone section: classic Class III. 2026 is being called "Colorado's longest rafting season" due to strong snowpack. Defiance Rafting Co. (raftdefiance.com) and Blue Sky Adventures (raftbluesky.com) are the top local outfitters. The Shoshone Hydroelectric Plant creates a consistent guaranteed rapid that doesn't slow in late season.</div>
+    </div>
+
+    <div class="cta-item">
+      <div class="cta-name">🚡 Glenwood Caverns Adventure Park</div>
+      <div class="cta-desc">America's only mountaintop theme park at 7,132 ft (reached by gondola). The Giant Canyon Swing launches 1,300 ft over the canyon. Cave tours (Historic Fairy Cave and King's Row) are carved into the same Leadville Limestone as the hot springs — 300+ million year old formations.</div>
+    </div>
+
+    <div class="cta-item">
+      <div class="cta-name">🚲 Glenwood Canyon Recreation Trail</div>
+      <div class="cta-desc">15.5-mile paved trail through the canyon along the Colorado River. One of the most geologically dramatic paved trails in the US — canyon walls rise 1,000–2,000 ft on either side, exposing 600 million years of rock layers. The trail is cantilevered off cliff faces in places and crosses the river twice on pedestrian bridges.</div>
+    </div>
+
+    <div class="cta-item">
+      <div class="cta-name">🍽️ The Pullman</div>
+      <div class="cta-desc">Downtown on 7th Street restaurant row. New American, creative seasonal menus, consistently top-ranked. Great cocktails. The dinner option in Glenwood Springs.</div>
+    </div>
+
+    <div class="cta-item">
+      <div class="cta-name">🎹 Riviera Supper Club</div>
+      <div class="cta-desc">A Glenwood institution since 1947. New American with impeccable river views and live piano music. More upscale — excellent for a special dinner.</div>
+    </div>
+
+    <div class="cta-item">
+      <div class="cta-name">🍺 Casey Brewing and Blending</div>
+      <div class="cta-desc">Award-winning wild ales and sours made with 99% Colorado ingredients. One of the most respected craft breweries in the state, known nationally. Grand Avenue.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Trip Audio Companion — Glenwood Springs · Colorado Hot Springs Road Trip 2026</p>
+  <p style="margin-top:6px;">Photos from Wikimedia Commons (CC), National Park Service &amp; USDA (public domain). Research compiled May 20, 2026.</p>
+  <p style="margin-top:6px;">Listen to the full 65-minute audio episode for the complete story behind every card.</p>
+</footer>
+
+</div><!-- .wrap -->
+
+<script>
+  // Native lazy loading is supported in all modern browsers.
+  // This minimal fallback handles older iOS Safari.
+  if (!('loading' in HTMLImageElement.prototype)) {
+    const imgs = document.querySelectorAll('img[loading="lazy"]');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); } });
+    }, { rootMargin: '300px' });
+    imgs.forEach(i => io.observe(i));
+  }
+</script>
+</body>
+</html>
