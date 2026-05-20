@@ -79,26 +79,121 @@
     .cta-name  { font-weight: 700; font-size: 1rem; color: #22543d; }
     .cta-desc  { font-size: .9rem; color: #276749; margin-top: 2px; }
 
-    /* AUDIO PLAYER */
-    .audio-player-section {
-      background: #f5f0e8;
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin: 16px 0 24px 0;
-      text-align: center;
+    /* STICKY AUDIO PLAYER */
+    .sticky-player {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #2c1f0e;
+      color: #f5f0e8;
+      padding: 10px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
     }
-    .audio-label {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #5c4a2a;
+    .player-title {
+      font-size: 0.8rem;
+      color: #c9a96e;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       margin-bottom: 8px;
     }
-    .audio-hint {
-      font-size: 0.85rem;
-      color: #7a6a50;
-      margin: 8px 0 0 0;
-      font-style: italic;
+    .progress-bar {
+      flex: 1;
+      height: 4px;
+      accent-color: #c9a96e;
+      cursor: pointer;
     }
+    .time-display {
+      font-size: 0.75rem;
+      color: #c9a96e;
+      min-width: 36px;
+      font-variant-numeric: tabular-nums;
+    }
+    .controls-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .play-btn {
+      background: #c9a96e;
+      color: #2c1f0e;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .play-btn:active { transform: scale(0.95); }
+    .speed-controls {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .speed-label {
+      font-size: 0.75rem;
+      color: #9a8a70;
+    }
+    .speed-btn {
+      background: transparent;
+      color: #c9a96e;
+      border: 1px solid #4a3a20;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      min-height: 32px;
+    }
+    .speed-btn.active {
+      background: #c9a96e;
+      color: #2c1f0e;
+      font-weight: 600;
+    }
+    .resume-prompt {
+      position: fixed;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2c1f0e;
+      color: #f5f0e8;
+      border: 1px solid #c9a96e;
+      border-radius: 12px;
+      padding: 16px 20px;
+      z-index: 1001;
+      text-align: center;
+      min-width: 280px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    #resume-message {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .resume-action-btn, .restart-action-btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      min-height: 44px;
+      margin: 0 4px;
+    }
+    .resume-action-btn { background: #c9a96e; color: #2c1f0e; font-weight: 600; }
+    .restart-action-btn { background: #4a3a20; color: #f5f0e8; }
+    .player-spacer { height: 110px; }
 
     /* FOOTER */
     .footer { text-align: center; padding: 30px 20px; font-size: var(--sz-sm); color: var(--c-subtle); border-top: 1px solid var(--c-border); margin-top: 20px; }
@@ -126,14 +221,44 @@
   <div class="meta">Colorado Hot Springs Road Trip · May 2026 · Elevation: 5,756 ft</div>
 </header>
 
-<div class="audio-player-section">
-  <div class="audio-label">🎧 Episode Audio</div>
-  <audio controls preload="metadata" style="width:100%; max-width:560px; border-radius:8px; margin:12px 0;">
+<!-- STICKY AUDIO PLAYER -->
+<div id="audio-player-bar" class="sticky-player">
+  <div class="player-title">🎧 Glenwood Springs — Iron Mountain &amp; Hanging Lake</div>
+
+  <audio id="episode-audio" preload="metadata">
     <source src="episode.mp3" type="audio/mpeg">
-    Your browser doesn't support audio playback.
   </audio>
-  <p class="audio-hint">Scroll through the cards below as you listen — each section matches the audio.</p>
+
+  <!-- Progress bar -->
+  <div class="progress-container">
+    <span id="current-time" class="time-display">0:00</span>
+    <input type="range" id="progress-bar" class="progress-bar" value="0" min="0" step="1">
+    <span id="total-time" class="time-display">--:--</span>
+  </div>
+
+  <!-- Controls row -->
+  <div class="controls-row">
+    <button id="play-pause-btn" class="play-btn" aria-label="Play">▶</button>
+    <div class="speed-controls">
+      <span class="speed-label">Speed:</span>
+      <button class="speed-btn" data-speed="0.75">0.75×</button>
+      <button class="speed-btn active" data-speed="1">1×</button>
+      <button class="speed-btn" data-speed="1.25">1.25×</button>
+      <button class="speed-btn" data-speed="1.5">1.5×</button>
+      <button class="speed-btn" data-speed="2">2×</button>
+    </div>
+  </div>
 </div>
+
+<!-- RESUME PROMPT -->
+<div id="resume-prompt" class="resume-prompt" style="display:none;">
+  <span id="resume-message">Resume from 0:00?</span>
+  <button id="resume-btn" class="resume-action-btn">▶ Resume</button>
+  <button id="restart-btn" class="restart-action-btn">↩ Start Over</button>
+</div>
+
+<!-- Spacer so content doesn't hide under sticky player -->
+<div class="player-spacer"></div>
 
 <!-- ================================================================
      CHAPTER 1: WHY COLORADO HAS HOT SPRINGS
@@ -950,6 +1075,101 @@
     }, { rootMargin: '300px' });
     imgs.forEach(i => io.observe(i));
   }
+</script>
+<script>
+(function() {
+  const STORAGE_KEY = 'trip-audio-glenwood-springs';
+  const audio = document.getElementById('episode-audio');
+  const playPauseBtn = document.getElementById('play-pause-btn');
+  const progressBar = document.getElementById('progress-bar');
+  const currentTimeEl = document.getElementById('current-time');
+  const totalTimeEl = document.getElementById('total-time');
+  const resumePrompt = document.getElementById('resume-prompt');
+  const resumeMessage = document.getElementById('resume-message');
+  const resumeBtn = document.getElementById('resume-btn');
+  const restartBtn = document.getElementById('restart-btn');
+  const speedBtns = document.querySelectorAll('.speed-btn');
+
+  function formatTime(seconds) {
+    if (!seconds || isNaN(seconds)) return '0:00';
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+    if (h > 0) return h + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    return m + ':' + String(s).padStart(2,'0');
+  }
+
+  playPauseBtn.addEventListener('click', function() {
+    if (audio.paused) { audio.play(); playPauseBtn.textContent = '⏸'; }
+    else { audio.pause(); playPauseBtn.textContent = '▶'; }
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    if (!audio.duration) return;
+    progressBar.value = (audio.currentTime / audio.duration) * 100;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  audio.addEventListener('loadedmetadata', function() {
+    progressBar.max = 100;
+    totalTimeEl.textContent = formatTime(audio.duration);
+  });
+
+  progressBar.addEventListener('input', function() {
+    if (!audio.duration) return;
+    audio.currentTime = (progressBar.value / 100) * audio.duration;
+  });
+
+  speedBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const speed = parseFloat(btn.dataset.speed);
+      audio.playbackRate = speed;
+      speedBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      localStorage.setItem(STORAGE_KEY + '-speed', speed);
+    });
+  });
+
+  setInterval(function() {
+    if (!audio.paused && audio.currentTime > 5) {
+      localStorage.setItem(STORAGE_KEY, Math.floor(audio.currentTime));
+    }
+  }, 5000);
+
+  audio.addEventListener('pause', function() {
+    if (audio.currentTime > 5) localStorage.setItem(STORAGE_KEY, Math.floor(audio.currentTime));
+  });
+
+  const savedSpeed = parseFloat(localStorage.getItem(STORAGE_KEY + '-speed') || '1');
+  if (savedSpeed !== 1) {
+    audio.playbackRate = savedSpeed;
+    speedBtns.forEach(function(btn) {
+      btn.classList.remove('active');
+      if (parseFloat(btn.dataset.speed) === savedSpeed) btn.classList.add('active');
+    });
+  }
+
+  const savedTime = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+  if (savedTime > 30) {
+    resumeMessage.textContent = 'Resume from ' + formatTime(savedTime) + '?';
+    resumePrompt.style.display = 'block';
+    resumeBtn.addEventListener('click', function() {
+      audio.currentTime = savedTime;
+      audio.play();
+      playPauseBtn.textContent = '⏸';
+      resumePrompt.style.display = 'none';
+    });
+    restartBtn.addEventListener('click', function() {
+      localStorage.removeItem(STORAGE_KEY);
+      resumePrompt.style.display = 'none';
+    });
+  }
+
+  audio.addEventListener('ended', function() {
+    localStorage.removeItem(STORAGE_KEY);
+    playPauseBtn.textContent = '▶';
+  });
+})();
 </script>
 </body>
 </html>

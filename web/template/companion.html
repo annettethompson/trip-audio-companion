@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ episode_title }} — Audio Companion Page">
+  <title>{{ episode_title }} | Audio Companion</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --max-w: 620px;
+      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --sz-body: 18px;
+      --sz-small: 14px;
+      --sz-label: 13px;
+      --lh: 1.65;
+      --c-bg: #fafafa;
+      --c-card: #ffffff;
+      --c-border: #e2e8f0;
+      --c-text: #1a202c;
+      --c-subtle: #718096;
+      --c-header-bg: #1a365d;
+      --c-header-text: #ffffff;
+      --c-divider-bg: #2d3748;
+      --c-divider-text: #e2e8f0;
+      /* Badge colors */
+      --badge-edible: #276749;
+      --badge-edible-bg: #c6f6d5;
+      --badge-medicinal: #2b6cb0;
+      --badge-medicinal-bg: #bee3f8;
+      --badge-caution: #b7791f;
+      --badge-caution-bg: #fefcbf;
+      --badge-poisonous: #c53030;
+      --badge-poisonous-bg: #fed7d7;
+      /* Era badge */
+      --era-bg: #2d3748;
+      --era-text: #e2e8f0;
+    }
+
+    html { font-size: var(--sz-body); scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--c-bg);
+      color: var(--c-text);
+      line-height: var(--lh);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 0 80px;
+    }
+
+    /* ===== EPISODE HEADER ===== */
+    .ep-header {
+      background: var(--c-header-bg);
+      color: var(--c-header-text);
+      padding: 32px 20px 28px;
+      text-align: center;
+    }
+    .ep-header .ep-label {
+      font-size: var(--sz-label);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 8px;
+    }
+    .ep-header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .ep-header .ep-tagline {
+      font-size: 1rem;
+      opacity: 0.85;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .ep-header .ep-meta {
+      margin-top: 16px;
+      font-size: var(--sz-label);
+      opacity: 0.6;
+    }
+
+    /* ===== CHAPTER DIVIDER ===== */
+    .chapter-divider {
+      background: var(--c-divider-bg);
+      color: var(--c-divider-text);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chapter-divider .divider-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+    }
+    .chapter-divider .chapter-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ===== CARD BASE ===== */
+    .card {
+      background: var(--c-card);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .card-img-wrap {
+      width: 100%;
+      position: relative;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      display: block;
+      height: auto;
+      object-fit: cover;
+    }
+    .card-img-wrap .img-credit {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 10px;
+      padding: 3px 6px;
+      line-height: 1.3;
+      max-width: 75%;
+      text-align: right;
+    }
+    .card-body {
+      padding: 16px 18px 18px;
+    }
+    .card-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 2px;
+    }
+    .card-sci {
+      font-style: italic;
+      font-size: var(--sz-small);
+      color: var(--c-subtle);
+      margin-bottom: 10px;
+    }
+    .card-rule {
+      border: none;
+      border-top: 2px solid var(--c-border);
+      margin: 10px 0;
+    }
+    .card-section-label {
+      font-size: var(--sz-label);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--c-subtle);
+      margin-bottom: 4px;
+    }
+    .card-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--c-text);
+      margin-bottom: 10px;
+    }
+    .card-text:last-child { margin-bottom: 0; }
+    .card-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px;
+    }
+    .card-bullets li {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      padding: 3px 0 3px 18px;
+      position: relative;
+      color: var(--c-text);
+    }
+    .card-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: var(--c-subtle);
+    }
+
+    /* ===== PLANT BADGE ===== */
+    .plant-badge {
+      display: inline-block;
+      font-size: var(--sz-label);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+    }
+    .badge-edible    { color: var(--badge-edible);    background: var(--badge-edible-bg); }
+    .badge-medicinal { color: var(--badge-medicinal);  background: var(--badge-medicinal-bg); }
+    .badge-caution   { color: var(--badge-caution);   background: var(--badge-caution-bg); }
+    .badge-poisonous { color: var(--badge-poisonous); background: var(--badge-poisonous-bg); }
+
+    /* ===== POISON WARNING BOX ===== */
+    .poison-warning {
+      background: #fff5f5;
+      border-left: 4px solid var(--badge-poisonous);
+      border-radius: 0 4px 4px 0;
+      padding: 10px 12px;
+      margin: 8px 0 10px;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #742a2a;
+    }
+    .poison-warning strong { display: block; margin-bottom: 3px; }
+
+    /* ===== ERA BADGE (history) ===== */
+    .era-badge {
+      display: inline-block;
+      background: var(--era-bg);
+      color: var(--era-text);
+      font-size: var(--sz-label);
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 3px 9px;
+      margin-bottom: 8px;
+    }
+
+    /* ===== TEMPERATURE / MINERAL BADGE (hot springs) ===== */
+    .temp-badge {
+      display: inline-block;
+      background: #fff5f5;
+      color: #c53030;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      padding: 4px 10px;
+      margin-bottom: 8px;
+      border: 1px solid #feb2b2;
+    }
+
+    /* ===== LOOKOUT BOX (look-alikes warning) ===== */
+    .lookalike-box {
+      background: #fffaf0;
+      border-left: 4px solid #dd6b20;
+      border-radius: 0 4px 4px 0;
+      padding: 8px 12px;
+      margin: 6px 0 8px;
+      font-size: 0.88rem;
+      color: #7b341e;
+    }
+    .lookalike-box strong { font-size: var(--sz-label); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ===== INFO CARD (altitude / general info) ===== */
+    .info-card {
+      background: #ebf8ff;
+      border-left: 4px solid #2b6cb0;
+    }
+    .info-card .card-body { }
+
+    /* ===== CTA CARD (come back for this) ===== */
+    .cta-card {
+      background: #f0fff4;
+      border-left: 4px solid #276749;
+    }
+    .cta-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #c6f6d5;
+    }
+    .cta-item:last-child { border-bottom: none; }
+    .cta-item-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #22543d;
+    }
+    .cta-item-desc {
+      font-size: 0.9rem;
+      color: #276749;
+      margin-top: 2px;
+    }
+
+    /* ===== STICKY AUDIO PLAYER ===== */
+    .sticky-player {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #2c1f0e;
+      color: #f5f0e8;
+      padding: 10px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .player-title {
+      font-size: 0.8rem;
+      color: #c9a96e;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .progress-bar {
+      flex: 1;
+      height: 4px;
+      accent-color: #c9a96e;
+      cursor: pointer;
+    }
+    .time-display {
+      font-size: 0.75rem;
+      color: #c9a96e;
+      min-width: 36px;
+      font-variant-numeric: tabular-nums;
+    }
+    .controls-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .play-btn {
+      background: #c9a96e;
+      color: #2c1f0e;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .play-btn:active { transform: scale(0.95); }
+    .speed-controls {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .speed-label {
+      font-size: 0.75rem;
+      color: #9a8a70;
+    }
+    .speed-btn {
+      background: transparent;
+      color: #c9a96e;
+      border: 1px solid #4a3a20;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      min-height: 32px;
+    }
+    .speed-btn.active {
+      background: #c9a96e;
+      color: #2c1f0e;
+      font-weight: 600;
+    }
+    .resume-prompt {
+      position: fixed;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2c1f0e;
+      color: #f5f0e8;
+      border: 1px solid #c9a96e;
+      border-radius: 12px;
+      padding: 16px 20px;
+      z-index: 1001;
+      text-align: center;
+      min-width: 280px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    #resume-message {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .resume-action-btn, .restart-action-btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      min-height: 44px;
+      margin: 0 4px;
+    }
+    .resume-action-btn { background: #c9a96e; color: #2c1f0e; font-weight: 600; }
+    .restart-action-btn { background: #4a3a20; color: #f5f0e8; }
+    .player-spacer { height: 110px; }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: var(--sz-small);
+      color: var(--c-subtle);
+      border-top: 1px solid var(--c-border);
+      margin-top: 20px;
+    }
+
+    /* ===== LAZY LOAD PLACEHOLDER ===== */
+    img[loading="lazy"] { background: #e2e8f0; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --c-bg: #171923;
+        --c-card: #1a202c;
+        --c-border: #2d3748;
+        --c-text: #e2e8f0;
+        --c-subtle: #a0aec0;
+        --c-header-bg: #0f2040;
+        --c-divider-bg: #1a202c;
+        --c-divider-text: #a0aec0;
+      }
+      .poison-warning { background: #3d1212; color: #feb2b2; }
+      .lookalike-box { background: #2d1b0a; color: #fbd38d; }
+      .info-card { background: #0d2033; }
+      .cta-card { background: #0d2419; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- EPISODE HEADER -->
+  <header class="ep-header">
+    <div class="ep-label">🎧 Audio Companion</div>
+    <h1>{{ episode_title }}</h1>
+    <div class="ep-tagline">Scroll along as you listen — photos and info cards in the same order as the audio.</div>
+    {% if episode_date %}<div class="ep-meta">{{ episode_date }}</div>{% endif %}
+  </header>
+
+  <!-- STICKY AUDIO PLAYER -->
+  <div id="audio-player-bar" class="sticky-player">
+    <div class="player-title">🎧 {{ episode_title }}</div>
+
+    <audio id="episode-audio" preload="metadata">
+      <source src="episode.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="progress-container">
+      <span id="current-time" class="time-display">0:00</span>
+      <input type="range" id="progress-bar" class="progress-bar" value="0" min="0" step="1">
+      <span id="total-time" class="time-display">--:--</span>
+    </div>
+
+    <div class="controls-row">
+      <button id="play-pause-btn" class="play-btn" aria-label="Play">▶</button>
+      <div class="speed-controls">
+        <span class="speed-label">Speed:</span>
+        <button class="speed-btn" data-speed="0.75">0.75×</button>
+        <button class="speed-btn active" data-speed="1">1×</button>
+        <button class="speed-btn" data-speed="1.25">1.25×</button>
+        <button class="speed-btn" data-speed="1.5">1.5×</button>
+        <button class="speed-btn" data-speed="2">2×</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUME PROMPT -->
+  <div id="resume-prompt" class="resume-prompt" style="display:none;">
+    <span id="resume-message">Resume from 0:00?</span>
+    <button id="resume-btn" class="resume-action-btn">▶ Resume</button>
+    <button id="restart-btn" class="restart-action-btn">↩ Start Over</button>
+  </div>
+
+  <!-- Spacer so content doesn't hide under sticky player -->
+  <div class="player-spacer"></div>
+
+  <!-- CARDS (generated from script) -->
+  {% for card in cards %}
+
+  {% if card.type == "divider" %}
+  <!-- CHAPTER DIVIDER -->
+  <div class="chapter-divider">
+    <div class="divider-line"></div>
+    <div class="chapter-text">{{ card.emoji }} {{ card.text }}</div>
+    <div class="divider-line"></div>
+  </div>
+
+  {% elif card.type == "plant" %}
+  <!-- PLANT CARD -->
+  <div class="card">
+    {% if card.photo_url %}
+    <div class="card-img-wrap">
+      <img src="{{ card.photo_url }}" alt="{{ card.common_name }}" loading="lazy">
+      {% if card.photo_credit %}<div class="img-credit">{{ card.photo_credit }}</div>{% endif %}
+    </div>
+    {% endif %}
+    <div class="card-body">
+      <span class="plant-badge badge-{{ card.status }}">{{ card.status | upper }}</span>
+      <div class="card-name">{{ card.common_name }}</div>
+      {% if card.scientific_name %}<div class="card-sci">{{ card.scientific_name }}</div>{% endif %}
+      <hr class="card-rule">
+      {% if card.key_property %}
+      <div class="card-text">{{ card.key_property }}</div>
+      {% endif %}
+      {% if card.status == "poisonous" and card.poison_warning %}
+      <div class="poison-warning"><strong>⚠️ Do not consume</strong>{{ card.poison_warning }}</div>
+      {% endif %}
+      {% if card.edible_parts %}
+      <div class="card-section-label">Edible parts</div>
+      <div class="card-text">{{ card.edible_parts }}</div>
+      {% endif %}
+      {% if card.identification %}
+      <div class="card-section-label">How to identify</div>
+      <ul class="card-bullets">
+        {% for point in card.identification %}<li>{{ point }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      {% if card.lookalikes %}
+      <div class="lookalike-box">
+        <strong>Look-alikes to avoid: </strong>
+        {% for la in card.lookalikes %}{{ la }}{% if not loop.last %} · {% endif %}{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% elif card.type == "animal" %}
+  <!-- ANIMAL CARD -->
+  <div class="card">
+    {% if card.photo_url %}
+    <div class="card-img-wrap">
+      <img src="{{ card.photo_url }}" alt="{{ card.common_name }}" loading="lazy">
+      {% if card.photo_credit %}<div class="img-credit">{{ card.photo_credit }}</div>{% endif %}
+    </div>
+    {% endif %}
+    <div class="card-body">
+      <div class="card-name">{{ card.common_name }}</div>
+      {% if card.scientific_name %}<div class="card-sci">{{ card.scientific_name }}</div>{% endif %}
+      <hr class="card-rule">
+      {% if card.where_to_spot %}
+      <div class="card-section-label">Where to spot</div>
+      <div class="card-text">{{ card.where_to_spot }}</div>
+      {% endif %}
+      {% if card.habitat or card.elevation_range %}
+      <div class="card-section-label">Habitat</div>
+      <div class="card-text">{{ card.habitat }}{% if card.elevation_range %} · {{ card.elevation_range }}{% endif %}</div>
+      {% endif %}
+      {% if card.active_time %}
+      <div class="card-section-label">Active</div>
+      <div class="card-text">{{ card.active_time }}</div>
+      {% endif %}
+      {% if card.interesting_fact %}
+      <div class="card-section-label">Interesting</div>
+      <div class="card-text">{{ card.interesting_fact }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% elif card.type == "geology" %}
+  <!-- GEOLOGY CARD -->
+  <div class="card">
+    {% if card.photo_url %}
+    <div class="card-img-wrap">
+      <img src="{{ card.photo_url }}" alt="{{ card.name }}" loading="lazy">
+      {% if card.photo_credit %}<div class="img-credit">{{ card.photo_credit }}</div>{% endif %}
+    </div>
+    {% endif %}
+    <div class="card-body">
+      <div class="card-name">{{ card.name }}</div>
+      <hr class="card-rule">
+      {% if card.age %}
+      <div class="card-section-label">Age</div>
+      <div class="card-text">{{ card.age }}</div>
+      {% endif %}
+      {% if card.rock_type %}
+      <div class="card-section-label">Type</div>
+      <div class="card-text">{{ card.rock_type }}</div>
+      {% endif %}
+      {% if card.description %}
+      <div class="card-section-label">What you're looking at</div>
+      <div class="card-text">{{ card.description }}</div>
+      {% endif %}
+      {% if card.significance %}
+      <div class="card-section-label">Why it matters here</div>
+      <div class="card-text">{{ card.significance }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% elif card.type == "history" %}
+  <!-- HISTORY CARD -->
+  <div class="card">
+    {% if card.photo_url %}
+    <div class="card-img-wrap">
+      <img src="{{ card.photo_url }}" alt="{{ card.title }}" loading="lazy">
+      {% if card.photo_credit %}<div class="img-credit">{{ card.photo_credit }}</div>{% endif %}
+    </div>
+    {% endif %}
+    <div class="card-body">
+      {% if card.era %}<span class="era-badge">{{ card.era }}</span>{% endif %}
+      <div class="card-name">{{ card.title }}</div>
+      <hr class="card-rule">
+      <div class="card-text">{{ card.story }}</div>
+    </div>
+  </div>
+
+  {% elif card.type == "hotspring" %}
+  <!-- HOT SPRING CARD -->
+  <div class="card">
+    {% if card.photo_url %}
+    <div class="card-img-wrap">
+      <img src="{{ card.photo_url }}" alt="{{ card.name }}" loading="lazy">
+      {% if card.photo_credit %}<div class="img-credit">{{ card.photo_credit }}</div>{% endif %}
+    </div>
+    {% endif %}
+    <div class="card-body">
+      <div class="card-name">{{ card.name }}</div>
+      <hr class="card-rule">
+      {% if card.temperature %}
+      <div class="card-section-label">Temperature</div>
+      <div class="temp-badge">🌡️ {{ card.temperature }}</div>
+      {% endif %}
+      {% if card.minerals %}
+      <div class="card-section-label">Key minerals</div>
+      <div class="card-text">{{ card.minerals }}</div>
+      {% endif %}
+      {% if card.geology %}
+      <div class="card-section-label">Geology</div>
+      <div class="card-text">{{ card.geology }}</div>
+      {% endif %}
+      {% if card.history %}
+      <div class="card-section-label">History</div>
+      <div class="card-text">{{ card.history }}</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% elif card.type == "info" %}
+  <!-- INFO CARD -->
+  <div class="card info-card">
+    <div class="card-body">
+      <div class="card-name">{{ card.title }}</div>
+      <hr class="card-rule">
+      <div class="card-text">{{ card.content }}</div>
+      {% if card.bullets %}
+      <ul class="card-bullets">
+        {% for b in card.bullets %}<li>{{ b }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+
+  {% elif card.type == "cta" %}
+  <!-- CTA / COME-BACK-FOR-THIS CARD -->
+  <div class="card cta-card">
+    <div class="card-body">
+      <div class="card-name">{{ card.title }}</div>
+      <hr class="card-rule">
+      {% for item in card.items %}
+      <div class="cta-item">
+        <div class="cta-item-name">{{ item.name }}</div>
+        <div class="cta-item-desc">{{ item.description }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endif %}
+  {% endfor %}
+
+  <footer class="page-footer">
+    <p>Trip Audio Companion · Photos from Wikimedia Commons, iNaturalist (CC), NPS &amp; USGS (public domain)</p>
+    <p style="margin-top:6px;">For the full experience, listen to the audio episode while scrolling.</p>
+  </footer>
+</div>
+
+<script>
+  // Native lazy loading fallback for older browsers
+  if ('loading' in HTMLImageElement.prototype) {
+    // Browser supports lazy loading natively — done
+  } else {
+    const imgs = document.querySelectorAll('img[loading="lazy"]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const img = e.target;
+          img.src = img.dataset.src || img.src;
+          observer.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+    imgs.forEach(img => observer.observe(img));
+  }
+</script>
+<script>
+(function() {
+  const STORAGE_KEY = 'trip-audio-{{ episode_slug }}';
+  const audio = document.getElementById('episode-audio');
+  const playPauseBtn = document.getElementById('play-pause-btn');
+  const progressBar = document.getElementById('progress-bar');
+  const currentTimeEl = document.getElementById('current-time');
+  const totalTimeEl = document.getElementById('total-time');
+  const resumePrompt = document.getElementById('resume-prompt');
+  const resumeMessage = document.getElementById('resume-message');
+  const resumeBtn = document.getElementById('resume-btn');
+  const restartBtn = document.getElementById('restart-btn');
+  const speedBtns = document.querySelectorAll('.speed-btn');
+
+  function formatTime(seconds) {
+    if (!seconds || isNaN(seconds)) return '0:00';
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+    if (h > 0) return h + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    return m + ':' + String(s).padStart(2,'0');
+  }
+
+  playPauseBtn.addEventListener('click', function() {
+    if (audio.paused) { audio.play(); playPauseBtn.textContent = '⏸'; }
+    else { audio.pause(); playPauseBtn.textContent = '▶'; }
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    if (!audio.duration) return;
+    progressBar.value = (audio.currentTime / audio.duration) * 100;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  audio.addEventListener('loadedmetadata', function() {
+    progressBar.max = 100;
+    totalTimeEl.textContent = formatTime(audio.duration);
+  });
+
+  progressBar.addEventListener('input', function() {
+    if (!audio.duration) return;
+    audio.currentTime = (progressBar.value / 100) * audio.duration;
+  });
+
+  speedBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const speed = parseFloat(btn.dataset.speed);
+      audio.playbackRate = speed;
+      speedBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      localStorage.setItem(STORAGE_KEY + '-speed', speed);
+    });
+  });
+
+  setInterval(function() {
+    if (!audio.paused && audio.currentTime > 5) {
+      localStorage.setItem(STORAGE_KEY, Math.floor(audio.currentTime));
+    }
+  }, 5000);
+
+  audio.addEventListener('pause', function() {
+    if (audio.currentTime > 5) localStorage.setItem(STORAGE_KEY, Math.floor(audio.currentTime));
+  });
+
+  const savedSpeed = parseFloat(localStorage.getItem(STORAGE_KEY + '-speed') || '1');
+  if (savedSpeed !== 1) {
+    audio.playbackRate = savedSpeed;
+    speedBtns.forEach(function(btn) {
+      btn.classList.remove('active');
+      if (parseFloat(btn.dataset.speed) === savedSpeed) btn.classList.add('active');
+    });
+  }
+
+  const savedTime = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+  if (savedTime > 30) {
+    resumeMessage.textContent = 'Resume from ' + formatTime(savedTime) + '?';
+    resumePrompt.style.display = 'block';
+    resumeBtn.addEventListener('click', function() {
+      audio.currentTime = savedTime;
+      audio.play();
+      playPauseBtn.textContent = '⏸';
+      resumePrompt.style.display = 'none';
+    });
+    restartBtn.addEventListener('click', function() {
+      localStorage.removeItem(STORAGE_KEY);
+      resumePrompt.style.display = 'none';
+    });
+  }
+
+  audio.addEventListener('ended', function() {
+    localStorage.removeItem(STORAGE_KEY);
+    playPauseBtn.textContent = '▶';
+  });
+})();
+</script>
+</body>
+</html>
