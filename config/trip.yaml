@@ -10,11 +10,35 @@ episode_priority: glenwood_springs  # Needed first — arriving TODAY (2026-05-2
 
 travelers:
   - name: Annette
-    background: "Science background, menopause health researcher, loves geology and plant biology, altitude physiology"
+    background: "Science background, menopause health researcher, loves geology and plant biology, altitude physiology, history"
     voice_level: "intelligent, no dumbing down, loves the actual science"
+    interests:
+      - history (mining era, railroad, Native American, settlement, cattle ranching)
+      - animal lover and horsewoman
+      - altitude physiology and plant biology
+      - altitude effects on the body
   - name: Bob
     background: "Annette's travel partner — LOVES GEOLOGY. Lean heavily into geological storytelling in every episode: rock formation ages, tectonic events, fault lines, volcanic history, mineral composition of hot spring waters, canyon-cutting timelines, sedimentary layers. Bob is the geology anchor for each stop — every episode should have at least one substantial geology deep-dive written for someone who genuinely geeks out on this."
     geology_emphasis: "HIGH — prioritize geological origin stories, mineral content explanations, regional fault/uplift context, and how geology shapes every hot spring we visit"
+    interests:
+      - geology (primary anchor — see geology_emphasis above)
+      - history (mining era, railroad, Native American, settlement, cattle ranching)
+      - animal lover and horseman
+      - wildlife and horse culture
+
+shared_context:
+  currently_watching: "1923 (Paramount+) — Taylor Sheridan's Western ranching drama about the Dutton family in 1920s Montana/West. Both Annette and Bob love it."
+  1923_script_rule: "Every episode MUST include at least one '1923 moment' — a specific historical detail from the 1920s or earlier that connects the Colorado landscape to the world they've been watching. Make history tactile by linking it to 1923 scenes and themes."
+  1923_connection_examples:
+    - "Glenwood Canyon: in the 1920s no road existed — only pack horses and the railroad. The Duttons would have traveled like this."
+    - "Mountain town boom/bust: Prohibition bootlegging, early ranching families, horses being replaced by Model Ts — this IS the 1923 era."
+    - "San Luis Valley cattle ranching: the kind of wide open range the Duttons would recognize."
+    - "Ute people: the reservation was established 1881, just 40 years before 1923's setting — the wounds were still fresh."
+  shared_loves:
+    - history (both travelers — not Annette-only)
+    - animal lovers and horsemen
+    - geological storytelling
+    - wildlife encounters
 
 route:
   origin: "Boulder, CO"
@@ -144,11 +168,23 @@ topics_of_interest:
   - wildflower identification by zone (montane, subalpine, alpine)
   - wildlife ecology — elk, bighorn sheep, marmots, ptarmigan, eagles
 
-  # HISTORY AND CULTURE
+  # HISTORY AND CULTURE (both travelers love history — always substantial, never a footnote)
   - Ute Nation history — especially Pagosa Springs ('healing waters'), Steamboat Springs, and their traditional relationship with geothermal sites
   - mining and railroad history — Durango & Silverton, Leadville's silver boom
   - mountain town character and evolution — resort vs. working towns
   - Leadville — highest incorporated city in the US, altitude records, historic figures (Baby Doe Tabor)
+  - pack horse and mule train history in Colorado mining towns — the logistics of supply before roads
+  - cattle ranching history in mountain parks and San Luis Valley — trail drives, grazing rights, homesteading families
+  - Prohibition era in Colorado mountain towns — bootlegging, speakeasies, who enforced the law in remote canyons
+  - early automobile roads replacing horse trails — especially Glenwood Canyon (no road existed in the 1920s; railroad and pack horses only)
+  - horse culture in Ute and settler communities — breeds, working uses, ceremonial significance
+  - 1923-era Colorado: the exact era of mining bust, post-WWI ranching expansion, early automobile tourism replacing horse travel
+
+  # WILDLIFE AND ANIMALS (both travelers are animal lovers and horsemen)
+  - wildlife encounters and animal behavior — elk, bighorn sheep, marmots, black bears, eagles, pronghorn
+  - horse history in Colorado — pack strings, cavalry remounts, ranch horses, transition to automobiles
+  - working animal history — mule pack trains supplying mining camps, oxen on early freight roads
+  - wildlife corridors and migration — how the mountain landscape shapes animal movement
 
   # DRIVE AND SCENERY
   - scenic drives and what to notice — what the landscape is telling you geologically
