@@ -1,0 +1,279 @@
+---
+# Colorado Mountain Plants — Glenwood Springs to Leadville Corridor
+# Late May, 5,000–11,000 ft elevation
+# Sources: USDA PLANTS, Colorado Native Plant Society, iNaturalist CC-BY
+
+plants:
+
+  - common_name: "Willow"
+    scientific_name: "Salix spp."
+    status: medicinal
+    key_property: "Bark contains salicin — the natural precursor to aspirin. Used as pain reliever for thousands of years."
+    edible_parts: null
+    poison_warning: null
+    identification:
+      - "Long, narrow lance-shaped leaves (narrowleaf willow) or broader oval leaves depending on species"
+      - "Catkins (fuzzy seed/flower clusters) appear before or with leaves in spring"
+      - "Always found near water — streams, riverbanks, wet meadows"
+    lookalikes:
+      - "Cottonwood (Populus) — similar catkins but much larger tree with broader leaves"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Salix_interior_wichita.jpg/800px-Salix_interior_wichita.jpg"
+    photo_credit: "Wikimedia Commons / USDA-NRCS PLANTS Database (public domain)"
+    notes: "The Ute people used willow bark medicinally. Salicin converts to salicylic acid in the body, the same active compound as aspirin."
+
+  - common_name: "Yampa / Yampah"
+    scientific_name: "Perideridia gairdneri"
+    status: edible
+    key_property: "Sacred food of the Ute people — the entire Yampa River valley is named for this plant. Roots taste like carrots."
+    edible_parts: "Roots (raw or cooked), seeds"
+    poison_warning: "CRITICAL look-alike warning: Poison hemlock and water hemlock look very similar. Do NOT harvest unless 100% certain of ID."
+    identification:
+      - "White umbrella-shaped flower clusters (umbel) on hollow stems, 1–3 ft tall"
+      - "Fine, feathery leaves like a carrot top"
+      - "Small, round to elongated tubers underground, white-fleshed, carrot-flavored"
+    lookalikes:
+      - "Poison hemlock (Conium maculatum) — purple-spotted stems, rank smell"
+      - "Water hemlock (Cicuta douglasii) — chambered roots, near water — DEADLY"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Perideridia_gairdneri.jpg/640px-Perideridia_gairdneri.jpg"
+    photo_credit: "Wikimedia Commons / Ben Legler (CC-BY)"
+    notes: "The Yampa River, Yampa Valley, and Yampah Hot Springs all take their name from this plant, central to Ute culture."
+
+  - common_name: "Wild Onion / Nodding Onion"
+    scientific_name: "Allium cernuum"
+    status: edible
+    key_property: "All parts edible — bulb, leaves, and flowers. Strong onion smell is the definitive ID feature."
+    edible_parts: "Bulb, leaves, flowers — raw or cooked"
+    poison_warning: "Strong onion smell is required for safe ID. If it doesn't smell like onion, do NOT eat it."
+    identification:
+      - "Distinctive onion/garlic smell — crush a leaf to test. This is the critical safety check."
+      - "Nodding (drooping) pink to white flower head on a slender stem, 6–18 inches tall"
+      - "Narrow, grass-like basal leaves"
+    lookalikes:
+      - "Death camas (Anticlea elegans) — DEADLY, no onion smell, white flowers that point upright"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Allium_cernuum_4.jpg/640px-Allium_cernuum_4.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "The smell test is not optional — it is the difference between a delicious edible and a fatal mistake."
+
+  - common_name: "Death Camas"
+    scientific_name: "Anticlea elegans"
+    status: poisonous
+    key_property: "All parts highly toxic. Looks like wild onion but has NO onion smell. Responsible for livestock and human deaths."
+    edible_parts: null
+    poison_warning: "DO NOT CONSUME. Contains zygacine and related steroidal alkaloids that cause vomiting, low blood pressure, slow heart rate, and can be fatal. The only reliable field distinction from wild onion is the complete absence of onion smell."
+    identification:
+      - "Grass-like leaves emerging from a bulb — looks deceptively like wild onion"
+      - "White to cream flowers in an upright cluster (not nodding like Allium cernuum)"
+      - "No onion or garlic smell whatsoever — this absence is the danger signal"
+    lookalikes:
+      - "Wild onion (Allium cernuum) — ALWAYS smell the plant. Onion smell = safe. No smell = danger."
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Anticlea_elegans_8.jpg/640px-Anticlea_elegans_8.jpg"
+    photo_credit: "Wikimedia Commons / Matt Lavin (CC-BY-SA)"
+    notes: "Historically responsible for livestock poisoning when pastures are overgrazed and cattle eat unfamiliar plants."
+
+  - common_name: "Poison Hemlock"
+    scientific_name: "Conium maculatum"
+    status: poisonous
+    key_property: "One of the most toxic plants in North America. Socrates was executed with a hemlock preparation. Contains coniine, which causes ascending paralysis."
+    edible_parts: null
+    poison_warning: "DO NOT CONSUME or touch eyes/mouth after handling. All parts toxic. Fatal dose is small. Coniine causes paralysis starting in the legs and moving upward — death is by respiratory failure."
+    identification:
+      - "Purple or reddish-purple blotchy spots/streaks on hollow green stems — this is the key ID feature"
+      - "White umbrella-shaped flower clusters (umbel), similar to yampa and carrot"
+      - "Musty, unpleasant mousy smell when leaves are crushed"
+    lookalikes:
+      - "Yampa / wild carrot / Queen Anne's Lace — check for purple-spotted stems and musty smell"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Conium_maculatum_detail.jpg/640px-Conium_maculatum_detail.jpg"
+    photo_credit: "Wikimedia Commons / H. Zell (CC-BY-SA)"
+    notes: "Common in disturbed areas, roadsides, and near water. The purple-spotted hollow stem is the field identification key."
+
+  - common_name: "Water Hemlock"
+    scientific_name: "Cicuta douglasii"
+    status: poisonous
+    key_property: "Described by the USDA as the most violently toxic plant in North America. Kills in 15 minutes. Contains cicutoxin, which causes violent convulsions."
+    edible_parts: null
+    poison_warning: "EXTREMELY POISONOUS. The root is chambered (divided into compartments with yellowish sap) — if you accidentally pull one up, this is the fatal mistake sign. Cicutoxin causes grand mal seizures within 15–30 minutes of ingestion. There is no antidote."
+    identification:
+      - "White umbrella-shaped flower clusters, 2–6 feet tall, near water or in wet areas"
+      - "If root is exposed: chambered interior with partitions and yellowish resinous sap — unique to this species"
+      - "Leaf veins run to the notches between teeth rather than to the teeth tips (unusual botanical feature)"
+    lookalikes:
+      - "Yampa and other edible umbel plants — only found near or in water; chambered root is definitive"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cicuta_douglasii.jpg/640px-Cicuta_douglasii.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "Found in wet meadows, stream banks, and irrigation ditches. Always near water. Children and cattle are most common victims."
+
+  - common_name: "Monkshood / Wolf's Bane"
+    scientific_name: "Aconitum columbianum"
+    status: poisonous
+    key_property: "Contains aconitine — one of the most toxic alkaloids found in plants. A few milligrams can kill an adult. The distinctive purple helmet-shaped flowers are unmistakable."
+    edible_parts: null
+    poison_warning: "DO NOT CONSUME or handle carelessly. Aconitine is absorbed through skin. Causes burning/numbness, then heart arrhythmias and respiratory paralysis. Fatalities documented from handling plant and touching eyes/mouth."
+    identification:
+      - "Distinctive hooded, helmet-shaped purple-blue flowers — the 'monk's hood' shape is unlike any other Colorado wildflower"
+      - "Tall plant, 2–5 feet, with deeply lobed palmate leaves"
+      - "Found in moist mountain meadows, stream banks, and aspen groves, typically 7,000–11,000 ft"
+    lookalikes:
+      - "Larkspur (Delphinium spp.) — also purple/blue, also toxic, but flowers have a spur rather than a hood"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Aconitum_columbianum_2.jpg/640px-Aconitum_columbianum_2.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "Monkshood was historically used as 'wolf bane' and 'arrow poison' across many cultures. Bees can access the nectar safely; it is the leaves, stems, and roots that contain concentrated aconitine."
+
+  - common_name: "Colorado Blue Columbine"
+    scientific_name: "Aquilegia coerulea"
+    status: caution
+    key_property: "State flower of Colorado. Mildly toxic in large quantities (contains cardiogenic toxins and cyanogenic glycosides). Beautiful but not for eating."
+    edible_parts: null
+    poison_warning: "Do not consume. Small quantities unlikely to cause serious harm but seeds contain higher concentrations and are more toxic. Children should not be allowed to eat any part."
+    identification:
+      - "Unmistakable: blue-violet petals with white inner petals and long backward-pointing spurs"
+      - "Delicate, multi-lobed compound leaves with rounded leaflets"
+      - "Found in mountain meadows, aspen groves, and rocky slopes 6,000–12,000 ft"
+    lookalikes:
+      - "Other Aquilegia species — all columbines, all similarly caution-level toxic"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Aquilegia_coerulea_4.jpg/640px-Aquilegia_coerulea_4.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "It is illegal to pick columbines in Colorado state parks. The flowers are pollinated by long-tongued bees and hawkmoths that can reach the nectar in the long spurs."
+
+  - common_name: "Serviceberry / Saskatoon"
+    scientific_name: "Amelanchier alnifolia"
+    status: edible
+    key_property: "Sweet, nutritious berries ripen July–August. One of the most important wild edibles in the Rocky Mountain region. Critical food source for bears, deer, and birds."
+    edible_parts: "Berries (July–August when purple-black and ripe)"
+    poison_warning: null
+    identification:
+      - "White five-petaled flowers in clusters appear in early-to-mid spring before most other shrubs bloom"
+      - "Small shrub to small tree, 3–15 feet, with oval toothed leaves"
+      - "Berries ripen from green to red to purple-black in midsummer, about the size of a blueberry"
+    lookalikes:
+      - "Chokecherry (Prunus virginiana) — also edible berries but different flower shape (elongated clusters)"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Amelanchier_alnifolia_var_semiintegrifolia_1.jpg/640px-Amelanchier_alnifolia_var_semiintegrifolia_1.jpg"
+    photo_credit: "Wikimedia Commons / Matt Lavin (CC-BY-SA)"
+    notes: "The Ute, Shoshone, and many other tribes dried serviceberries into pemmican — a high-calorie winter food. Bears gorge on them in late summer to build fat before hibernation."
+
+  - common_name: "Wild Rose / Woods' Rose"
+    scientific_name: "Rosa woodsii"
+    status: edible
+    key_property: "Rose hips (the fruit) are extremely high in Vitamin C — higher per gram than citrus fruit. Used medicinally and as food across many cultures."
+    edible_parts: "Rose hips (red/orange fruit, best after first frost), petals (raw), young leaves (tea)"
+    poison_warning: "Remove the seeds and inner fiber before eating hips — they contain small hairs that can irritate the digestive tract."
+    identification:
+      - "Pink five-petaled flowers with yellow stamens, fragrant, 1–2 inches across"
+      - "Thorny shrub with pinnately compound leaves (multiple pairs of small, oval, toothed leaflets)"
+      - "Bright red-orange oval hips (fruits) visible fall through winter"
+    lookalikes:
+      - "Other Rosa species — all edible in the same way"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Rosa_woodsii_2007.jpg/640px-Rosa_woodsii_2007.jpg"
+    photo_credit: "Wikimedia Commons / Stan Shebs (CC-BY-SA)"
+    notes: "Rose hips were a critical Vitamin C source for indigenous peoples through winter. WWII Britain collected them to make rose hip syrup for children when citrus was rationed."
+
+  - common_name: "Dandelion"
+    scientific_name: "Taraxacum officinale"
+    status: edible
+    key_property: "Completely edible — every part. Leaves are nutritious greens high in Vitamin A, K, and C. Young leaves taste best before flowering. Europeans cultivated it as a food crop."
+    edible_parts: "Leaves (salad or cooked greens), flowers (fritters or wine), roots (roasted as coffee substitute)"
+    poison_warning: null
+    identification:
+      - "Deeply toothed or lobed leaves in a basal rosette — the 'lion's teeth' the name refers to"
+      - "Bright yellow composite flower heads on hollow stems with milky white sap when broken"
+      - "Spherical white seed heads ('clocks') familiar to everyone"
+    lookalikes:
+      - "Other yellow composite flowers — dandelion's hollow stem with milky sap and single-flower-per-stem is distinctive"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Dandelion_Taraxacum_officinale_closeup.jpg/640px-Dandelion_Taraxacum_officinale_closeup.jpg"
+    photo_credit: "Wikimedia Commons / Böhringer Friedrich (CC-BY-SA)"
+    notes: "The dandelion is not native to North America — it arrived with European settlers and spread everywhere. Ironically, it is one of the most nutritious plants on a lawn or meadow."
+
+  - common_name: "Miner's Lettuce"
+    scientific_name: "Claytonia perfoliata"
+    status: edible
+    key_property: "Named for California Gold Rush miners who ate it to prevent scurvy. Delicious raw salad green with mild flavor. High in Vitamin C and iron."
+    edible_parts: "Entire plant — leaves, stems, flowers, raw or lightly cooked"
+    poison_warning: null
+    identification:
+      - "Distinctive: upper leaves are round and fused around the stem so the stem appears to grow through the center of the leaf"
+      - "Tiny white or pale pink five-petaled flowers in the center of the disc-like upper leaf"
+      - "Found in moist, shaded areas — under shrubs, near water, in disturbed moist soil"
+    lookalikes:
+      - "No dangerous look-alikes; the perfoliate (stem-through-leaf) structure is unique"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Claytonia_perfoliata_2.jpg/640px-Claytonia_perfoliata_2.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "One of the easiest wild edibles to identify confidently. The fused round leaf with the stem coming through it is unmistakable."
+
+  - common_name: "Gambel Oak"
+    scientific_name: "Quercus gambelii"
+    status: caution
+    key_property: "Acorns are edible after leaching — raw acorns contain bitter tannins that must be removed by soaking in water. After leaching, acorn meal has been a staple food for many cultures worldwide."
+    edible_parts: "Acorns — after leaching tannins by soaking in multiple changes of water for 24–48 hours"
+    poison_warning: "Raw or insufficiently leached acorns contain tannins that cause digestive upset and (with large quantities) kidney damage. Leach thoroughly before eating."
+    identification:
+      - "Deeply lobed leaves with rounded (not pointed) lobe tips — the rounded lobes distinguish Gambel oak from most other oaks"
+      - "Dense shrubby thickets on rocky canyon slopes at 5,000–8,000 ft elevation"
+      - "Acorns ripen September–October, small and round in a shallow cup"
+    lookalikes:
+      - "Other oak species — all require tannin leaching before eating"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Quercus_gambelii_7.jpg/640px-Quercus_gambelii_7.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "Gambel oak is the dominant shrub of Colorado foothills canyon terrain. Its dense thickets provide critical cover for mule deer and bears. Acorns are the primary fall food for black bears."
+
+  - common_name: "Narrowleaf Cottonwood"
+    scientific_name: "Populus angustifolia"
+    status: medicinal
+    key_property: "Inner bark contains salicylates (related to salicin in willow), used for pain, fever, and inflammation. The sticky resin on spring buds has antimicrobial properties."
+    edible_parts: null
+    poison_warning: null
+    identification:
+      - "Long, narrow lance-shaped leaves (much longer than wide — this distinguishes narrowleaf from plains cottonwood)"
+      - "Yellow-green catkins in spring appear before or with leaves"
+      - "White cottony seed fluff releases in late May–June, blowing everywhere"
+    lookalikes:
+      - "Willow (Salix) — similar narrow leaves and streamside habitat, but cottonwood leaves are toothed and shinier"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Populus_angustifolia.jpg/640px-Populus_angustifolia.jpg"
+    photo_credit: "Wikimedia Commons / Matt Lavin (CC-BY-SA)"
+    notes: "The dominant tree of Colorado River riparian corridors at 4,500–7,000 ft. In late May the cotton hasn't released yet but the trees are in full new-growth leaf — that intense translucent yellow-green."
+
+  - common_name: "Quaking Aspen"
+    scientific_name: "Populus tremuloides"
+    status: medicinal
+    key_property: "Bark contains salicin and populin (both aspirin relatives). Used by Native Americans for pain, fever, arthritis. The most widely distributed tree in North America."
+    edible_parts: null
+    poison_warning: null
+    identification:
+      - "Round to triangular leaves with flattened petioles (leaf stems) that cause the leaves to tremble in any breeze — hence 'quaking'"
+      - "Smooth, pale greenish-white to cream bark — photosynthetic bark means aspens can make food through their bark in winter"
+      - "Grows in large clonal groves (entire mountainsides may be one genetic individual connected by roots)"
+    lookalikes:
+      - "Birch trees — similar white bark but birch bark peels in horizontal strips; aspen bark does not"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Populus_tremuloides_leaf.jpg/640px-Populus_tremuloides_leaf.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "The Pando grove in Utah — a single aspen clone connected by roots — is estimated at 80,000 years old and is considered the largest single organism on Earth by mass."
+
+  - common_name: "Prickly Pear Cactus"
+    scientific_name: "Opuntia polyacantha"
+    status: edible
+    key_property: "Both the pads (nopales) and fruits (tunas) are edible. A critical food source at lower elevations. The fruits are high in antioxidants and Vitamin C."
+    edible_parts: "Pads after burning or scraping off spines and glochids, fruits when ripe (purple-red in late summer)"
+    poison_warning: "Glochids (tiny hair-like spines) are the real danger — they detach easily and embed in skin and mucous membranes. Handle with thick leather gloves or tongs."
+    identification:
+      - "Flat, paddle-shaped segments (pads) covered in clusters of sharp spines and tiny barbed glochids"
+      - "Yellow flowers in late spring–early summer, followed by reddish-purple fruits"
+      - "Found on dry, rocky slopes and canyon walls at lower elevations — common below 7,500 ft"
+    lookalikes:
+      - "No dangerous look-alikes in Colorado"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Opuntia_polyacantha_2.jpg/640px-Opuntia_polyacantha_2.jpg"
+    photo_credit: "Wikimedia Commons / Walter Siegmund (CC-BY-SA)"
+    notes: "At lower elevations around Glenwood Springs you may see prickly pear blooming in late May–early June. The Ute people ate both the pads and fruits and used the juice medicinally."
+
+  - common_name: "Wild Strawberry"
+    scientific_name: "Fragaria virginiana"
+    status: edible
+    key_property: "Intensely flavored small wild berries — far more flavorful than commercial strawberries. All parts edible. The parent species of cultivated strawberries."
+    edible_parts: "Berries (ripe June–August), leaves (tea), young leaves (salad)"
+    poison_warning: null
+    identification:
+      - "Three toothed leaflets in a clover-like arrangement, low-growing"
+      - "White five-petaled flowers with yellow centers in spring"
+      - "Small red berries June–August, much smaller but intensely sweeter than cultivated strawberries"
+    lookalikes:
+      - "Mock strawberry (Potentilla indica) — similar but flowers are yellow, not white; fruits tasteless but not toxic"
+    photo_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Fragaria_virginiana_NRCS.jpg/640px-Fragaria_virginiana_NRCS.jpg"
+    photo_credit: "Wikimedia Commons / USDA-NRCS PLANTS Database (public domain)"
+    notes: "Found in forest openings, meadow edges, and rocky slopes. The concentration of flavor in a tiny wild strawberry is striking compared to commercial varieties bred for size."

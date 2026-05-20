@@ -1,0 +1,11 @@
+/*
+  Cache-Control: public, max-age=86400
+
+/*.mp3
+  Cache-Control: public, max-age=604800
+
+/*.html
+  Cache-Control: public, max-age=3600
+
+/*.yaml
+  Cache-Control: public, max-age=86400

@@ -1,12 +1,15 @@
-.env
-data/raw_sources/
-data/cleaned_sources/
+# Large generated output files
 outputs/
+
+# Python
 __pycache__/
 *.pyc
-*.pyo
+.venv/
+venv/
+
+# Environment
+.env
+
+# OS
 .DS_Store
-*.egg-info/
-dist/
-build/
-.pytest_cache/
+Thumbs.db
