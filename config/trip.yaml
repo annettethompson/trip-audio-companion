@@ -17,6 +17,7 @@ travelers:
       - animal lover and horsewoman
       - altitude physiology and plant biology
       - altitude effects on the body
+      - good local restaurants at each stop
   - name: Bob
     background: "Annette's travel partner — LOVES GEOLOGY. Lean heavily into geological storytelling in every episode: rock formation ages, tectonic events, fault lines, volcanic history, mineral composition of hot spring waters, canyon-cutting timelines, sedimentary layers. Bob is the geology anchor for each stop — every episode should have at least one substantial geology deep-dive written for someone who genuinely geeks out on this."
     geology_emphasis: "HIGH — prioritize geological origin stories, mineral content explanations, regional fault/uplift context, and how geology shapes every hot spring we visit"
@@ -25,6 +26,7 @@ travelers:
       - history (mining era, railroad, Native American, settlement, cattle ranching)
       - animal lover and horseman
       - wildlife and horse culture
+      - hiking and extreme sports (whitewater rafting, zip lines, via ferrata, mountain biking, paragliding)
 
 shared_context:
   currently_watching: "1923 (Paramount+) — Taylor Sheridan's Western ranching drama about the Dutton family in 1920s Montana/West. Both Annette and Bob love it."
@@ -197,6 +199,17 @@ avoid_topics:
   - over-commercialized "spa day" framing — these are wild geothermal systems, not resort amenities
 
 episode_style: "warm, intelligent, vivid, story-driven — like a custom educational audiobook narrated by a knowledgeable friend. Every episode should open with the geology of where we're arriving, then weave in physiology, history, and nature. Bob is the geology anchor; Annette is the science/physiology anchor. Write for two genuinely curious adults who want the real story, not a tourist brochure."
+
+episode_structure:
+  required_sections:
+    - geology_open: "Lead with Bob's geology anchor for this stop — origin story, mineral content, fault/uplift context"
+    - physiology_and_science: "Annette's science angle — altitude physiology, hot spring chemistry, plant biology, wildlife"
+    - history_and_culture: "Mining era, railroad, Native American history, 1923 moment"
+    - come_back_for_this: |
+        Closing section in every episode. Cover all three:
+        1. Hiking trails Bob would love — rated by difficulty, notable geology or scenery
+        2. Extreme sports and adventure activities available at or near this stop (whitewater rafting, zip lines, via ferrata, mountain biking, paragliding, climbing, etc.)
+        3. Restaurant picks for Annette — local standouts worth returning for, not chains
 
 target_minutes: 65
 minimum_minutes: 60
