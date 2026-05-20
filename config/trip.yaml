@@ -3,50 +3,164 @@
 
 trip_name: "Colorado Hot Springs Road Trip"
 trip_slug: "colorado_hot_springs_2026"
-start_date: "2026-05-20"
-end_date: "2026-05-28"
+start_date: "2026-05-18"
+end_date: "2026-05-29"
+
+episode_priority: glenwood_springs  # Needed first — arriving TODAY (2026-05-20)
 
 travelers:
   - name: Annette
     background: "Science background, menopause health researcher, loves geology and plant biology, altitude physiology"
     voice_level: "intelligent, no dumbing down, loves the actual science"
   - name: Bob
-    background: "Annette's partner"
+    background: "Annette's travel partner — LOVES GEOLOGY. Lean heavily into geological storytelling in every episode: rock formation ages, tectonic events, fault lines, volcanic history, mineral composition of hot spring waters, canyon-cutting timelines, sedimentary layers. Bob is the geology anchor for each stop — every episode should have at least one substantial geology deep-dive written for someone who genuinely geeks out on this."
+    geology_emphasis: "HIGH — prioritize geological origin stories, mineral content explanations, regional fault/uplift context, and how geology shapes every hot spring we visit"
 
-# FILL IN AFTER ANNETTE PROVIDES ROUTE
 route:
   origin: "Boulder, CO"
   destinations:
-    - city: "TBD"
-      notes: "Update with actual route"
+    - date: "2026-05-18"
+      city: "Steamboat Springs"
+      hot_spring: "Old Town Hot Springs"
+      status: "done"
+      notes: "Trip start. Steamboat Springs sits in the Yampa Valley — northwest Colorado's volcanic/geothermal belt. Old Town is right in town, mineral-rich, historic."
+    - date: "2026-05-19"
+      city: "Steamboat Springs"
+      hot_spring: "Strawberry Park Hot Springs"
+      status: "done"
+      notes: "Wild, primitive setting. Strawberry Park is a lithium-rich sodium bicarbonate spring in a canyon above town. Stunning contrast to Old Town."
+    - date: "2026-05-20"
+      city: "Glenwood Springs"
+      hot_spring: "Iron Mountain Hot Springs"
+      status: "TODAY"
+      notes: "Pre-purchased multi-entry passes. Glenwood Canyon is one of Colorado's most dramatic geological formations — the Colorado River has cut 1,500 ft through Precambrian granite and Paleozoic limestone. Iron Mountain springs are sodium bicarbonate. Glenwood Hot Springs Pool (world's largest) also nearby for context."
+    - date: "2026-05-21"
+      city: "Ridgway"
+      hot_spring: "Orvis Hot Springs"
+      notes: "Ridgway sits at the northern gateway to the San Juan Mountains — one of the most geologically complex ranges in North America. Orvis is a clothing-optional, clothing-required-in-some-pools spring. Uncompahgre Plateau context."
+    - date: "2026-05-22"
+      city: "Ridgway"
+      hot_spring: "Orvis Hot Springs (2nd day)"
+      notes: "Second day at Orvis — good opportunity to explore Ridgway State Park, Dallas Divide, and the San Juan skyline. Ouray/Silverton geology day-trip potential."
+    - date: "2026-05-23"
+      city: "Durango"
+      hot_spring: "Durango Hot Springs"
+      notes: "Durango straddles the Animas River in the San Juan Basin. Rich in mining history — the Durango & Silverton Narrow Gauge Railroad context. Durango Hot Springs is a newer resort-style facility."
+    - date: "2026-05-24"
+      city: "Pagosa Springs"
+      hot_spring: "The Springs Resort"
+      notes: "The Springs Resort sits over the Great Pagosa Hot Spring — one of the world's deepest geothermal hot springs (borehole >700 ft). Sulfur-rich, extremely high mineral content. Pagosa means 'healing waters' in Ute. Weminuche Wilderness nearby."
+    - date: "2026-05-25"
+      city: "Moffat"
+      hot_spring: "Joyful Journey Hot Springs"
+      notes: "San Luis Valley — the largest alpine valley in the world, a rift graben between the Sangre de Cristo and San Juan ranges. Joyful Journey sits at 7,700 ft with views of the Sangres. Great Northern Dunes (Great Sand Dunes NP) day-trip."
+    - date: "2026-05-26"
+      city: "Villa Grove"
+      hot_spring: "Valley View Hot Springs"
+      notes: "Orient Land Trust's Valley View — primitive, clothing-optional, stunning Sangre de Cristo views. The Orient Mine (bat colony) is nearby. Villa Grove sits on the Rio Grande Rift. Remote and extraordinary."
+    - date: "2026-05-27"
+      city: "Nathrop"
+      hot_spring: "Mt. Princeton Hot Springs"
+      notes: "Mt. Princeton (14,197 ft) is a Collegiate Peak. The hot springs emerge along a fault zone at the base of the mountain — chalk cliffs and creek-side pools. Chalk Creek canyon geology is spectacular."
+    - date: "2026-05-28"
+      city: "Leadville"
+      hot_spring: null
+      notes: "Leadville — highest incorporated city in the US at 10,152 ft. No hot spring, but extraordinary mining history, altitude physiology opportunity, and views of Mt. Elbert (highest peak in Colorado) and Mt. Massive. Good final-night reflection episode."
+    - date: "2026-05-29"
+      city: "Return to Boulder"
+      hot_spring: null
+      notes: "Drive home via Copper Mountain and I-70. Possible Vail Pass geology stop. Trip wrap-up episode opportunity."
 
 hot_springs:
-  - name: "TBD"
-    location: "TBD"
-    notes: "Update with specific springs being visited"
+  - name: "Old Town Hot Springs"
+    location: "Steamboat Springs, CO"
+    type: "sodium bicarbonate, lithium-rich"
+    notes: "Historic, in-town facility. Part of Steamboat's geothermal belt."
+  - name: "Strawberry Park Hot Springs"
+    location: "Steamboat Springs, CO (canyon above town)"
+    type: "lithium-rich sodium bicarbonate"
+    notes: "Primitive canyon setting. One of Colorado's most beloved wild springs."
+  - name: "Iron Mountain Hot Springs"
+    location: "Glenwood Springs, CO"
+    type: "sodium bicarbonate"
+    access: "Pre-purchased multi-entry passes"
+    notes: "16 soaking pools along the Colorado River. Adjacent to Glenwood Canyon — Precambrian granite walls."
+  - name: "Orvis Hot Springs"
+    location: "Ridgway, CO"
+    type: "highly mineralized"
+    notes: "Clothing-optional facility near Ridgway. Views of the Uncompahgre Plateau and San Juan Mountains."
+  - name: "Durango Hot Springs"
+    location: "Durango, CO"
+    type: "geothermal"
+    notes: "Modern resort-style facility in the Animas River valley."
+  - name: "The Springs Resort"
+    location: "Pagosa Springs, CO"
+    type: "sulfur-rich, extremely high mineral content"
+    notes: "Sits over the Great Pagosa Hot Spring — one of the world's deepest geothermal springs (>700 ft borehole). 'Pagosa' = Ute for healing waters."
+  - name: "Joyful Journey Hot Springs"
+    location: "Moffat, CO (San Luis Valley)"
+    type: "geothermal"
+    notes: "Sits in the world's largest alpine valley (a rift graben). Views of the Sangre de Cristo range."
+  - name: "Valley View Hot Springs"
+    location: "Villa Grove, CO"
+    type: "geothermal"
+    notes: "Orient Land Trust. Primitive, clothing-optional. Rio Grande Rift geology. Extraordinary views."
+  - name: "Mt. Princeton Hot Springs"
+    location: "Nathrop, CO"
+    type: "geothermal, fault-zone emergence"
+    notes: "Springs emerge along a fault at the base of Mt. Princeton (14,197 ft). Chalk Creek canyon, chalk cliffs, creek-side pools."
 
-parks_and_trails: []
+parks_and_trails:
+  - name: "Glenwood Canyon"
+    location: "Glenwood Springs, CO"
+    notes: "1,500 ft deep canyon cut by the Colorado River through Precambrian granite and Paleozoic limestone"
+  - name: "Great Sand Dunes National Park"
+    location: "Near Alamosa, CO"
+    notes: "Day-trip from Moffat — geologically linked to San Luis Valley rift graben"
+  - name: "Weminuche Wilderness"
+    location: "Near Pagosa Springs, CO"
+    notes: "Colorado's largest wilderness — San Juan high country"
+  - name: "Mt. Elbert / Mt. Massive"
+    location: "Near Leadville, CO"
+    notes: "Two highest peaks in Colorado — visible from Leadville"
 
 topics_of_interest:
-  - Colorado hot springs geology
-  - geothermal systems and how they work
-  - Rocky Mountain formation
-  - local plants and wildflowers (mountain ecosystems)
-  - aspen groves, pine forests, riparian zones
-  - altitude physiology (why the body feels different above 8000 ft)
-  - mining and railroad history
-  - Native American history (carefully sourced, respectful)
-  - mountain wildlife (bear, elk, bighorn, marmot, eagles)
-  - scenic drives and what to notice
-  - mountain town histories and characters
-  - conversation prompts for Annette and Bob
+  # GEOLOGY (Bob-priority — lead with this in every episode)
+  - geothermal systems and how they work — why heat rises here and not elsewhere
+  - Colorado hot springs geology — mineral content, water chemistry, why each spring is different
+  - Rocky Mountain formation — Laramide orogeny, Ancestral Rockies, uplift timeline
+  - San Juan Mountains — volcanic calderas, one of the most complex ranges in North America
+  - Rio Grande Rift — why the San Luis Valley is the world's largest alpine valley
+  - Glenwood Canyon — Precambrian granite, Paleozoic limestone, how the Colorado River cut it
+  - fault zones and hot spring emergence — why springs often appear along faults
+  - mining history geology — what minerals were where and why (Leadville silver, San Juan gold)
+  - Chalk Creek and Collegiate Peaks geology — Mt. Princeton fault zone
+  - sedimentary layers visible from the road — reading the rock record
+
+  # PHYSIOLOGY AND SCIENCE (Annette-priority)
+  - altitude physiology — why the body feels different above 8,000 ft, acclimatization
+  - hot spring chemistry and the body — what minerals do, why sulfur smells, sodium bicarbonate effects
+  - plant biology — riparian zones, aspen ecology, wildflowers by elevation band
+  - wildflower identification by zone (montane, subalpine, alpine)
+  - wildlife ecology — elk, bighorn sheep, marmots, ptarmigan, eagles
+
+  # HISTORY AND CULTURE
+  - Ute Nation history — especially Pagosa Springs ('healing waters'), Steamboat Springs, and their traditional relationship with geothermal sites
+  - mining and railroad history — Durango & Silverton, Leadville's silver boom
+  - mountain town character and evolution — resort vs. working towns
+  - Leadville — highest incorporated city in the US, altitude records, historic figures (Baby Doe Tabor)
+
+  # DRIVE AND SCENERY
+  - scenic drives and what to notice — what the landscape is telling you geologically
+  - conversation prompts for Annette and Bob — geology trivia, nature observation games, shared reflection
 
 avoid_topics:
   - political content
   - anything requiring speculation without sourcing
   - sensationalized content
+  - over-commercialized "spa day" framing — these are wild geothermal systems, not resort amenities
 
-episode_style: "warm, intelligent, vivid, story-driven — like a custom educational audiobook narrated by a knowledgeable friend"
+episode_style: "warm, intelligent, vivid, story-driven — like a custom educational audiobook narrated by a knowledgeable friend. Every episode should open with the geology of where we're arriving, then weave in physiology, history, and nature. Bob is the geology anchor; Annette is the science/physiology anchor. Write for two genuinely curious adults who want the real story, not a tourist brochure."
 
 target_minutes: 65
 minimum_minutes: 60
