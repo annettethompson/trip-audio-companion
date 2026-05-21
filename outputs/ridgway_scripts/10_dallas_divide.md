@@ -1,0 +1,23 @@
+# Chapter 10: What to Notice on the Drive
+*Estimated duration: 5.0 minutes | Word count: 685*
+
+There are specific moments on this drive where you should put down whatever conversation you are having and just look. Here are the ones that matter most.
+
+The approach to Ridgway on US 550 from the north is the first. The reservoir appears on the east side of the road, and behind it, the San Juan wall. Depending on the time of day and the cloud situation, this can be a dramatic or a transcendent view. Mount Sneffels, at 14,150 feet, is the highest peak in the Sneffels Range to the southwest, and its profile, with the characteristic broken volcanic crown of the San Juans, is visible from this approach. In morning light the mountains are purple and blue. In afternoon they turn orange-gold. Neither is better than the other. Both will stop you.
+
+From Ridgway, if you have time, drive the first several miles of CO-62 west toward Telluride. This road heads toward the Dallas Divide, a low saddle in the Sneffels Range at about 8,970 feet, and the view of Mount Sneffels from the Dallas Divide is one of the most photographed mountain vistas in Colorado. The mountain rises steeply from the valley, its volcanic rock faces deeply eroded, the summit towers and subsidiary ridges giving it an almost architectural quality. This is the mountain that defines the Ridgway postcard.
+
+The farmland in the foreground of that view, including the historic Thistledown Ranch property, is quintessential Western ranching landscape: irrigated hay meadows, wooden fencing, the kind of working pastoral scenery that made this area a film location for True Grit and that drew Ralph Lauren's attention decades later. The view from Dallas Divide in October, when the aspen color is running at full intensity across the lower slopes, is considered one of the finest autumn color views in the state. In late May, the aspens are fresh green, the meadows are emerald from the spring snowmelt, and the snow is still thick on the upper mountain.
+
+The Ridgway Reservoir itself on a calm morning is worth lingering over. The San Juan reflection in the still water before the wind comes up is genuinely surprising in its clarity and color. Ridgway State Park, which manages the reservoir area, has easy trail access to the shoreline and several viewpoints. Ospreys, as noted, are active over the water in spring and summer.
+
+The roadcuts on US 550 south of Ridgway, where the highway drops into the Uncompahgre Gorge, are an open geological textbook if you know what to look for. Bob, watch the sequence: for the first several miles south of town, the cuts expose orange-red Cutler Formation sandstone and siltstone. The color is unmistakable. As the road enters the gorge and the elevation drops relative to the surrounding terrain, the character of the rock changes. The Cutler gives way to older Paleozoic limestones, then to the dark Precambrian basement rocks exposed at the gorge bottom. The progression is a section through hundreds of millions of years of Colorado's rock record, compressed into a twenty-minute drive.
+
+There is one contact in particular to watch for: the boundary between the youngest rock above and the Precambrian basement below. This is an unconformity representing roughly 500 million years of missing time, rock that was deposited, eroded, and gone before the overlying layers were laid down. The contact itself, where the rock type changes abruptly, is the physical boundary between two entirely different episodes of Earth history. Geologists call this an angular unconformity if the rock layers tilt at different angles on either side. In the Ouray area, the contact is roughly parallel but the time gap is real and enormous.
+
+The town of Ouray itself rewards slow walking. The main street is compressed and Victorian, with brick-fronted buildings dating from the 1880s and 1890s that have been maintained rather than demolished. The hot springs pool, the opera house, the hotel buildings: they reflect the moment when the town believed it was going to be large and permanent and prosperous forever.
+
+Walk to the south end of town and look up. The mountains close in from three sides. The box canyon is visible in a way that you cannot fully appreciate from a moving car. The vertical is overwhelming. And somewhere on those walls, if the light is right and you look carefully, a bighorn sheep will be standing on a ledge that looks too narrow for any creature with hooves.
+
+---
+*Sources: Dallas Divide views from Visit Ouray Colorado and Fox in the Forest; Ridgway Reservoir state park; True Grit filming location Colorado Vibes; Uncompahgre Gorge geological sequence from USGS and NPS Geodiversity Atlas*

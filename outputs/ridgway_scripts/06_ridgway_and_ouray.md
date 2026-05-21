@@ -1,0 +1,35 @@
+# Chapter 06: The Mountain Towns
+*Estimated duration: 8.0 minutes | Word count: 1,095*
+
+Ridgway exists because of a railroad that no longer exists, and it has survived that loss by becoming something different: a small, quietly artsy mountain town with ranching roots, extraordinary scenery, and a growing reputation as a gateway for people who want the beauty of the San Juans without the crowds and prices of Telluride twelve miles to the southwest.
+
+The town was established in 1890 by Otto Mears and Fred Walsen, at the northern terminus of Mears's new Rio Grande Southern Railroad. Mears was building his narrow-gauge line to connect the mining districts of Telluride, Rico, and Silverton to the existing Denver and Rio Grande main line, which ran through Ridgway. The logic was simple: millions of dollars of gold and silver ore were piling up in the San Juan high country with no efficient way to get them out. The railroad would solve that. Mears named the town after Robert Ridgway, the construction superintendent who oversaw the building of the line.
+
+The RGS ran 162 miles of three-foot gauge track from Ridgway south and west through some of the most improbable mountain terrain in Colorado, climbing over Lizard Head Pass at 10,222 feet, swinging through the mining towns, and connecting to Durango in the south. For the mines of Telluride and Silverton, the railroad was quite literally the lifeline. Without it, moving ore out of those mountain-locked towns required pack mule strings and freight wagons, slow and expensive. With it, the high country was connected to the broader economy.
+
+Ridgway's role was that of the northern hub: rail yard, machine shops, the place where freight transferred between the RGS narrow gauge and the broader Denver and Rio Grande system. At its peak the town supported a substantial working population of railroad workers, their families, and the businesses that served them.
+
+The silver price collapse of 1893 devastated the San Juan mining economy and nearly killed the railroad. The RGS lurched through receivership and reorganization for the next six decades, kept alive by creative engineering and the ingenuity of its employees. The famous Galloping Geese, the hybrid automobile-truck-railcar contraptions built in the Ridgway shops starting in 1931, are the clearest symbol of the railroad's resourceful improvisation. Unable to afford conventional rolling stock, the mechanics basically bolted Buick bodies and truck bodies onto narrow-gauge rail frames and ran them on the tracks. They were ridiculous-looking. They were brilliant. They served until 1952, when the railroad finally shut down for good.
+
+The Ridgway Railroad Museum preserves what remains of this history, including one of the Galloping Geese. If you have half an hour and any interest in nineteenth-century narrow-gauge engineering, it is worth a stop.
+
+After the railroad died, Ridgway contracted significantly. Then the art community arrived. Then the outdoor recreation community. Then Ralph Lauren.
+
+Lauren discovered the Ridgway area in 1982 and eventually assembled what became the Double RL Ranch, roughly 20,000 acres of the Ridgway valley and surrounding range land named for the double R of Ralph and Ricky Lauren. The Double RL brand, the fashion line that takes its name and aesthetic from the ranch, launched in 1993. The ranch itself is a genuine working ranch, cattle and horses on terrain that looks exactly like the kind of Western landscape that the Double RL aesthetic romanticizes. You cannot visit it, but you can see it from the roads around Ridgway, and it contributes to the sense that this valley is being held in a certain form of preservation, maintained as agricultural land rather than subdivided.
+
+John Wayne was here before Ralph Lauren. The 1969 film True Grit, in which Wayne won his only Academy Award playing the eye-patched, whiskey-drinking marshal Rooster Cogburn, was filmed largely in Ouray County. The mountain backdrop for many of the iconic scenes is the San Juan range visible from Ridgway. The True Grit Cafe in town commemorates this, and the surrounding landscape looks as it did in the film: wide, open, and unmistakably Western.
+
+Ouray itself, twelve miles south on US 550, occupies one of the more dramatic town sites in the American West. It sits at roughly 7,700 feet in a box canyon, nearly surrounded by mountains rising 13,000 to 14,000 feet on three sides. The town is essentially in a bowl, with canyon walls visible from every street. The mountains are not a backdrop. They are an enclosure.
+
+Ouray was established in 1875 and incorporated in 1876, with the first significant mining discoveries in the surrounding mountains bringing prospectors and then the support economy that prospectors require. The town grew quickly, because the ore grades were exceptional and because Otto Mears was already building roads into the backcountry. By the 1880s, Ouray had hotels, opera houses, and a hot springs pool fed by the same geothermal system that operates today. European visitors in the 1890s coined the nickname Switzerland of America, and while that comparison is geographically imprecise, the general sentiment is accurate: dramatic mountain scenery, a compact European-feeling town, and mineral spring traditions that felt familiar to visitors from the Alps.
+
+The Ouray Hot Springs Pool, operated by the city, sits at the north end of town. It is an outdoor mineral-water pool, fed by the same geothermal system that underlies the entire area, larger and more family-oriented than Orvis. If you want a daytime swim with mountain views rather than an evening soak, the Ouray pool is the option.
+
+But what Ouray is truly remarkable for, year-round, is what lives in the canyon walls above the town: bighorn sheep. A resident herd has adapted to the town's presence and the canyon walls of Ouray are among the most reliable bighorn-viewing sites in Colorado. The sheep use the vertical terrain the way they evolved to use it, finding footholds on ledges that seem impossibly narrow, moving across cliff faces with an ease that defies any expectation of what a hooved animal should be able to do.
+
+In late May, which is when you are here, the lambs are fresh. Born in April and May, the young bighorns follow their mothers with that specific ungulate combination of extreme youth and surprising competence. Watch the canyon walls from the main road through town, specifically the north-facing walls above the river. Mountain goats have also been spotted in the cliffs south of town near Amphitheater Campground. Both species in a single canyon.
+
+Ridgway and Ouray together form a unit. The quiet gateway and the dramatic enclosure, twelve miles apart, connected by one of the most geologically interesting highways in Colorado.
+
+---
+*Sources: Ridgway Railroad Museum history; SAH Archipedia Ridgway; History Net Ridgway railroad article; RGS history from Animas Museum; Ralph Lauren Double RL Ranch Ralph Lauren website; True Grit 1969 filming locations; Wikipedia Ouray Colorado; TripAdvisor Ouray wildlife viewing bighorn sheep*
