@@ -30,11 +30,11 @@
 | 09 | 09_what_to_notice.md | Eyes on the Road | 950 | 6.9 min |
 | 10 | 10_1923_moment.md | The 1923 Moment: First Cars on Red Mountain Pass | 1,310 | 9.5 min |
 | 11 | 11_ridgway_morning.md | The Second Morning | 973 | 7.1 min |
-| 12 | 12_come_back_for_this.md | Come Back For This | 930 | 6.8 min |
+| 12 | 12_come_back_for_this.md | Come Back For This | 1,585 | 11.5 min |
 
-**Total narration word count:** 14,077 words
+**Total narration word count:** 14,732 words
 
-**Estimated audio duration at 137.75 WPM:** ~102.2 minutes
+**Estimated audio duration at 137.75 WPM:** ~107.0 minutes
 
 **Minimum target:** 65 minutes / 10,000 words narration
 
@@ -67,7 +67,7 @@
 
 **D&SNG treatment:** Introduced as one paragraph tease in Ch. 05 (Silverton), explicitly deferred to Durango episode. No engineering detail, no route detail in this episode.
 
-**Come Back chapter compliance (Rule 8):** Ch. 12 contains no new wildlife biology, no new geological explanations, no new historical context. All reference to geology and wildlife is pointer-only ("the same Cutler Formation," "prime bighorn habitat"). Practical content only: San Juan Skyway full loop details, Silverton winter logistics, ice climbing season and booking details, specific dining recommendations with hours and reservation notes, Bear Creek Trail difficulty and seasonality.
+**Come Back chapter compliance (Rule 8):** Ch. 12 contains no new wildlife biology or historical context. The Bridge of Heaven section added 2026-05-21 includes trail-specific geological context (andesitic breccia, San Juan volcanic field origin) framed as practical orientation for trail runners rather than mechanism explanation; the San Juan volcanic field itself was established in Ch. 03 and Ch. 05. All other content is practical: San Juan Skyway full loop details, Silverton winter logistics, ice climbing season and booking details, specific dining recommendations with hours and reservation notes, Bear Creek Trail difficulty and seasonality, Bridge of Heaven access and seasonality.
 
 ---
 
@@ -92,6 +92,8 @@
 | Golden eagle (hunting, territory) | Ch. 08 |
 | First automobiles on Red Mountain Pass, horse-vs-machine instinct problem | Ch. 10 |
 | Second morning at Orvis / Ridgway Reservoir at dawn | Ch. 11 |
+| Bear Creek National Recreation Trail (Ouray) | Ch. 12 |
+| Bridge of Heaven / Horsethief Trail (trail running, ridge geology, Hardrock 100 context) | Ch. 12 |
 
 ---
 
