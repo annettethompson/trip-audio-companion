@@ -200,7 +200,7 @@ avoid_topics:
 
 episode_style: "warm, intelligent, vivid, story-driven — like a custom educational audiobook narrated by a knowledgeable friend. Every episode should open with the geology of where we're arriving, then weave in physiology, history, and nature. Bob is the geology anchor; Annette is the science/physiology anchor. Write for two genuinely curious adults who want the real story, not a tourist brochure."
 
-script_quality_rules: "See SCRIPT_RULES.md at project root. All episode writers MUST read this file before drafting any chapter. Key rules: one home chapter per topic, intro teases without explaining, drive chapters observe without teaching, no mechanism explained twice, topic inventory required before drafting."
+script_quality_rules: "See SCRIPT_RULES.md at project root. All episode writers MUST read this file before drafting any chapter. Key rules: one home chapter per topic, intro teases without explaining, drive chapters observe without teaching, no mechanism explained twice, topic inventory required before drafting. GEOLOGY CAP: total geology content across all chapters must not exceed 20 minutes (≤2,755 words at 137.75 WPM). Count all geology-focused content across every chapter and verify against the cap before submitting."
 
 episode_structure:
   required_sections:

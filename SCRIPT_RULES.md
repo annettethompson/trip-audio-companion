@@ -143,6 +143,38 @@ Those topics are now off-limits for full treatment in new episodes. They may app
 
 ---
 
+## Rule 9: Geology is capped at 20 minutes per episode — spread across all chapters
+
+Geology content across the entire episode must total no more than 20 minutes. At 137.75 WPM effective rate, 20 minutes = approximately 2,755 words. Count all geology-focused content regardless of which chapter it appears in.
+
+**What counts toward the geology cap:**
+- Any chapter or section whose primary subject is geological formation, rock type, tectonic event, mineral chemistry, volcanic history, fault zone mechanics, or geothermal plumbing
+- Geology-heavy paragraphs inside otherwise mixed chapters (hot springs mineralogy, canyon formation, travertine chemistry, etc.)
+
+**What does NOT count:**
+- One-sentence geology references in drive or wildlife chapters (Rule 3/4 pointers)
+- Come Back chapter mentions of trail geology (which must stay brief per Rule 8)
+- The intro hook teasing a geological feature (Rule 2)
+
+**How to apply the cap:**
+
+Before drafting, assign an estimated word budget to each geology section. Total them. If they exceed 2,755 words, either:
+- Consolidate two geology sections into one richer chapter
+- Trim the less essential formation details (save the deep-cut material for the audio; the companion page cards carry the visual reference)
+- Move supplementary geology context to a "geology reference" note that links to the companion page instead of reading it aloud
+
+**The priority within the 20-minute budget:**
+
+1. The geological origin of the hot spring itself (always first — this is why they're there)
+2. The most dramatic or unusual geological feature visible from the road or trail
+3. Any geology directly tied to the 1923 connection or mining history
+
+If the budget runs short, cut in reverse priority order.
+
+**The goal:** Bob gets genuinely meaty geology — specific formation names, tectonic events, mineral chemistry — but Annette isn't sitting through a geology lecture for half the drive. The 20-minute cap keeps geology as the richest thread in the episode, not the dominant one.
+
+---
+
 ## Rule 8: "Come Back For This" stays practical — no ecology or history
 
 The Come Back chapter is a practical planning guide. It answers four questions:
@@ -166,6 +198,26 @@ Come Back is a closing chapter that sends listeners forward with a practical pla
 
 ---
 
+## Rule 10: Research named properties, films, and famous figures with direct local connections
+
+Every episode must include at least one story about a real famous person, named property, or specific film/TV production with a **verifiable, place-specific connection** to the exact location covered. Not "Colorado is popular with celebrities" — but "this ranch, this road, this hotel, this specific scene."
+
+**What qualifies:**
+- Named private ranches owned by recognizable figures (Ralph Lauren's Double RL Ranch near Ridgway; Ted Turner's Vermejo Park; etc.)
+- Films or TV productions shot on location at specific identifiable spots (True Grit 1969 filmed in Ridgway/Ouray; D&SNG appearances in dozens of Westerns; Butch Cassidy scenes near Telluride)
+- Historical figures who stayed, worked, or died at the specific location (Doc Holliday in Glenwood Springs; Theodore Roosevelt at Hotel Colorado; etc.)
+- Celebrity or cultural figures with documented ownership or repeated presence
+
+**The standard:** the connection must be to the specific town, road, ranch, or building — not the general region.
+
+**Research process:** Before drafting, run a targeted search for "[location name] celebrity ranch," "[location name] film location," "[location name] famous owner," "[location name] historical figure." Verify the connection is real before writing it. If it checks out, write it as a narrative moment — give the person texture, not just a name-drop.
+
+**Tone:** Tell the story the way you'd tell a good piece of gossip to a friend who loves history. Ralph Lauren doesn't just own a ranch near here — he bought 14,000 acres of the old Ute grazing land in 1991, built it into a working cattle operation, uses authentic period tack, and has hosted everyone from Prince Charles to Anna Wintour. *That's* the story.
+
+**If no famous person connection exists for this stop:** substitute with a specific, named historical incident (a famous murder, a notable disaster, a legendary business deal, a record-breaking achievement) tied to the exact location.
+
+---
+
 ## Quick reference checklist
 
 Use this before submitting any episode draft:
@@ -178,4 +230,6 @@ Use this before submitting any episode draft:
 - [ ] Each wildlife species has one full-treatment section; all other appearances are one sentence
 - [ ] Every mechanism appears in full exactly once; later references are pointers only
 - [ ] Come Back chapter contains no new wildlife biology, geology, or history
+- [ ] Geology word count totaled across all chapters: must be ≤ 2,755 words (20 min at 137.75 WPM)
+- [ ] At least one named person / film / ranch story with a verifiable place-specific connection
 - [ ] Final pass: every REFERENCE topic in non-home chapters is one sentence or fewer

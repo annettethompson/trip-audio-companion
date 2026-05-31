@@ -1,0 +1,37 @@
+# Chapter 08: Life on the Alkali Flats
+
+*Estimated duration: 8.0 min | Word count: 1,099*
+
+Topic inventory:
+- San Luis Valley floor ecology: high-altitude semi-arid alkali environment — HOME
+- Halophyte plants: four-wing saltbush, greasewood, shadscale, alkali sacaton, saltgrass — HOME
+- Rubber rabbitbrush: identification, ecology, pollinator role, late-season bloom — HOME
+- Contrast: valley floor alkali community vs. Sangre de Cristo mountain slope ponderosa/spruce — HOME
+- Microenvironment around Joyful Journey and the mountain front piedmont — HOME
+- Pronghorn in valley context — REFERENCE (home is Day 3 episode; one sentence only)
+- Ponderosa pine ecology (Day 4 off-limits for full treatment) — REFERENCE pointer only
+- Engelmann spruce ecology (Day 5 off-limits for full treatment) — REFERENCE pointer only
+- Sandhill crane food sources — REFERENCE (home is Ch. 07; one sentence only)
+
+---
+
+The San Luis Valley floor is not a desert, exactly, though it receives only six to eight inches of rain per year and sustains a plant community that would not look out of place in the Great Basin of Nevada. It is more precisely a high-altitude semi-arid grassland and shrubland with severe constraints: alkaline and sometimes saline soils, low precipitation, intense UV radiation at 7,600 feet, frost possible in any month of the year, and groundwater chemistry that most plants cannot tolerate.
+
+The plants that live here have been selected, over thousands of generations, specifically for this difficulty. They are not survivors of a landscape that wants them gone. They are the right plants for this place, doing exactly what they evolved to do, and the community they form is as functionally complex as any ponderosa forest on the mountain slopes above.
+
+The dominant shrub across the alkali flats of the southern San Luis Valley is four-wing saltbush, Atriplex canescens. This plant is a study in adaptation to hostile conditions. Its leaves are gray-green, covered in a salt-excretion surface that literally pushes excess sodium out through the leaf tissue, allowing the plant to grow in soils that would kill most vegetation by osmotic stress. The four-wing designation comes from the winged seed capsules, four papery wings surrounding each seed, that make it one of the most recognizable shrubs in the southwestern alkaline-adapted community. Four-wing saltbush is eaten by pronghorn, mule deer, and a range of birds, and it provides a ground-level windbreak and habitat structure across an otherwise very open landscape. You will see it along CO-17 and on the edges of the access road to Joyful Journey: low, mounding, salt-gray, with those papery seeds visible in season.
+
+Greasewood, Sarcobatus vermiculatus, grows in the wettest, saltiest depressions: the areas where the shallow water table comes close to the surface and evaporation concentrates minerals in the top soil layer. Greasewood has a deep taproot system that lets it access water where no other shrub can reach it, and it tolerates soil salt concentrations that would stress even four-wing saltbush. It is darker green than saltbush, with small succulent-looking leaves and a stiff branch structure. The name comes from the waxy coating on stems and leaves. Where you see greasewood, the water table is relatively close and the soil is very salty: it is a botanical indicator for the wettest, most mineralized parts of the valley floor.
+
+Rubber rabbitbrush, Ericameria nauseosa, is the late-season bloomer, the plant that lights up the valley floor in gold in late August and September when almost everything else has gone to seed or dormancy. It is a drought-adapted, disturbance-tolerant shrub that increases in abundance on heavily grazed or disturbed ground, which is why it tends to dominate field margins, road edges, and overgrazed rangeland across the San Luis Valley. In late summer its small yellow composite flowers are one of the primary late-season nectar sources for native bees, monarch butterflies on fall migration, and a range of other pollinators that have few other options after midsummer heat has dried most wildflowers. Rubber rabbitbrush is not the most elegant plant in the valley, but it is the one holding the pollinator community together at a critical time of year.
+
+Alkali sacaton, Sporobolus airoides, is the grass that grows in the wettest, saltiest drainages: a coarse, tussock-forming native grass that can tolerate seasonal flooding with salt-laden water. Its seed heads form graceful plumes that blow in the valley wind, and in a wet spring the stands of alkali sacaton in the valley's wet meadows and drainage margins form dense communities that provide cover and nesting habitat for ground-nesting birds, small mammals, and the invertebrates that form the base of the crane and sandhill bird food chain. This is the same grass community that the cranes worked during the staging period you heard about in the previous chapter.
+
+Now look east from the valley floor toward the mountain front and notice the transition. The alkali flat community, gray-green and low, gives way at the mountain base to a piedmont slope community: mountain mahogany, serviceberry, Gambel oak on the lower rocky slopes, then a ponderosa pine zone above that, then the mixed conifer and aspen zone, then the subalpine spruce-fir forest whose story was covered in the Wolf Creek Pass chapter yesterday. Each of those transitions happens in a few hundred feet of elevation gain and corresponds to a shift in precipitation, temperature, and soil type. The alkali flat at 7,600 feet and the spruce forest at 11,000 feet are 3,400 feet apart vertically and entirely different ecological worlds.
+
+The microenvironment immediately around Joyful Journey Hot Springs adds another layer. The geothermal discharge keeps the immediate spring area slightly warmer than the surrounding valley floor in winter, and the mineral-rich artesian water that overflows from the pools creates a wetland margin around the facility that supports plants uncommon on the dry valley floor nearby: cattails, rushes, and water-tolerant sedges in the seep areas, moisture-loving native forbs in the transition zone between the wet spring area and the dry alkali flat. Hot spring margins are microenvironments, small islands of different conditions in a landscape otherwise defined by cold and dry, and they tend to harbor plants and insects you would not find 200 yards away on the open flat.
+
+The ecology of the San Luis Valley floor is often overlooked in favor of the mountains it sits between. But if you spend an afternoon at Joyful Journey watching the valley floor, the alkali scrub, the distant glint of wetland cells around the wildlife refuge, and the Sangres rising behind you, what you are seeing is a functioning high-altitude intermontane ecosystem that has been in roughly this form since the valley last had standing water in it 440,000 years ago. The plants adjusted. The birds adjusted. The animals adjusted. The land that looks barren from a car window is, on closer inspection, entirely full.
+
+---
+*Sources: Sangre de Cristo National Heritage Area: Soils and Land Use; sangreheritage.org ecology documentation; USDA NRCS Ecological site R051XY263CO; USDA Forest Service: four-wing saltbush; USGS Great Basin shrubland ecology; Cornell Lab of Ornithology (rabbitbrush pollinators); USDA Plants database: Atriplex canescens, Sarcobatus vermiculatus, Ericameria nauseosa, Sporobolus airoides*
